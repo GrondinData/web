@@ -202,7 +202,7 @@ section {
 .hero h1 {
 
     font-size:
-    clamp(3rem,5vw,4.8rem);
+    clamp(3rem,5vw,3.5rem);
 
     line-height:1.05;
 
