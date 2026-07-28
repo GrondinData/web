@@ -1,13 +1,36 @@
-const reveals = document.querySelectorAll('.reveal');
+// Animation au scroll
+
+const elements = document.querySelectorAll(".fade");
+
+
 const observer = new IntersectionObserver(
-  entries => { entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); },
-  { threshold:0.15 }
+
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},
+
+{
+    threshold:0.15
+}
+
 );
-reveals.forEach(el => observer.observe(el));
 
-const toggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
 
-toggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+
+elements.forEach(element => {
+
+    observer.observe(element);
+
 });
