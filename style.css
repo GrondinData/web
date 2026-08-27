@@ -67,6 +67,11 @@ img {
     max-width: 100%;
 }
 
+iframe {
+    display: block;
+    max-width: 100%;
+}
+
 a {
     color: inherit;
 }
@@ -87,7 +92,7 @@ summary {
 }
 
 section {
-    padding: 105px 0;
+    padding: 110px 0;
 }
 
 .section-dark {
@@ -106,7 +111,6 @@ section {
 
     font-size: clamp(2rem, 4vw, 2.7rem);
     line-height: 1.15;
-
     letter-spacing: -0.035em;
 }
 
@@ -129,7 +133,7 @@ section {
 }
 
 .section-intro {
-    max-width: 700px;
+    max-width: 720px;
 
     margin: -30px auto 55px;
 
@@ -138,9 +142,13 @@ section {
     text-align: center;
 
     font-size: 1.08rem;
+    line-height: 1.75;
 }
 
 .section-heading {
+    max-width: 850px;
+    margin: 0 auto 55px;
+
     text-align: center;
 }
 
@@ -149,7 +157,11 @@ section {
 }
 
 .section-heading .title {
-    margin-bottom: 42px;
+    margin-bottom: 20px;
+}
+
+.section-heading .section-intro {
+    margin: 0 auto;
 }
 
 
@@ -163,17 +175,16 @@ section {
     justify-content: center;
 
     margin-top: 32px;
+
     padding: 14px 32px;
 
     border: 1px solid var(--blue);
     border-radius: 10px;
 
     background: var(--blue);
-
     color: #ffffff;
 
     text-decoration: none;
-
     font-weight: 700;
 
     box-shadow:
@@ -206,8 +217,9 @@ section {
     align-items: center;
 
     position: relative;
-
     overflow: hidden;
+
+    padding: 100px 0;
 
     background:
         radial-gradient(
@@ -243,9 +255,11 @@ section {
 .hero-grid {
     display: grid;
 
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(320px, 0.85fr);
 
-    gap: 80px;
+    gap: 90px;
 
     align-items: center;
 }
@@ -270,6 +284,7 @@ section {
     color: var(--muted);
 
     font-size: 1.18rem;
+    line-height: 1.7;
 }
 
 
@@ -281,10 +296,13 @@ section {
     display: flex;
 
     flex-direction: column;
-
     align-items: center;
 
-    gap: 24px;
+    gap: 28px;
+
+    max-width: 430px;
+
+    margin: 0 auto;
 }
 
 .photo {
@@ -294,7 +312,6 @@ section {
     overflow: hidden;
 
     border: 5px solid #ffffff;
-
     border-radius: 50%;
 
     background: var(--bg-soft);
@@ -313,10 +330,9 @@ section {
 .profile-info {
     width: 100%;
 
-    padding: 28px;
+    padding: 30px;
 
     border: 1px solid var(--border);
-
     border-radius: var(--radius);
 
     background: var(--card);
@@ -346,7 +362,6 @@ section {
     display: flex;
 
     justify-content: center;
-
     flex-wrap: wrap;
 
     gap: 8px;
@@ -358,7 +373,6 @@ section {
     padding: 6px 13px;
 
     border: 1px solid var(--border);
-
     border-radius: 20px;
 
     background: var(--bg-soft);
@@ -372,16 +386,15 @@ section {
     display: inline-block;
 
     margin-top: 22px;
+
     padding: 8px 18px;
 
     border: 1px solid var(--border-blue);
-
     border-radius: 8px;
 
     color: var(--blue);
 
     text-decoration: none;
-
     font-weight: 600;
 
     transition: 0.25s ease;
@@ -403,11 +416,17 @@ section {
 .about {
     display: grid;
 
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(300px, 0.9fr);
 
-    gap: 80px;
+    gap: 85px;
 
     align-items: center;
+
+    max-width: 1050px;
+
+    margin: 0 auto;
 }
 
 .text-content {
@@ -415,13 +434,14 @@ section {
 
     flex-direction: column;
 
-    gap: 20px;
+    gap: 22px;
 }
 
 .about p {
     color: var(--muted);
 
     font-size: 1.08rem;
+    line-height: 1.75;
 }
 
 
@@ -438,10 +458,9 @@ section {
 }
 
 .skill {
-    padding: 20px;
+    padding: 21px;
 
     border: 1px solid var(--border);
-
     border-radius: 14px;
 
     background: var(--card);
@@ -479,7 +498,8 @@ section {
 ========================================================= */
 
 .offer-section {
-    padding-top: 95px;
+    padding-top: 100px;
+    padding-bottom: 115px;
 }
 
 .offer-wrapper {
@@ -489,10 +509,9 @@ section {
 }
 
 .offer-main {
-    padding: 48px;
+    padding: 50px;
 
     border: 1px solid var(--border-blue);
-
     border-radius: 24px;
 
     background:
@@ -513,7 +532,6 @@ section {
     color: var(--blue);
 
     font-size: 0.72rem;
-
     font-weight: 800;
 
     letter-spacing: 0.14em;
@@ -523,7 +541,6 @@ section {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
     gap: 50px;
@@ -549,6 +566,7 @@ section {
     color: var(--muted);
 
     font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 
@@ -570,7 +588,6 @@ section {
     color: var(--blue);
 
     font-size: 2.7rem;
-
     font-weight: 750;
 
     line-height: 1;
@@ -601,7 +618,6 @@ section {
     gap: 10px 24px;
 
     margin-top: 30px;
-
     padding-top: 25px;
 
     border-top: 1px solid var(--border);
@@ -615,7 +631,7 @@ section {
 
 
 /* =========================================================
-   PROGRAMME — ACCORDEON PRINCIPAL
+   PROGRAMME
 ========================================================= */
 
 .program-details {
@@ -624,14 +640,10 @@ section {
     border-top: 1px solid var(--border);
 }
 
-
-/* Bouton "Voir le programme" */
-
 .program-details > summary {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     gap: 20px;
@@ -645,7 +657,6 @@ section {
     color: var(--text);
 
     font-size: 0.95rem;
-
     font-weight: 700;
 
     transition: color 0.2s ease;
@@ -671,7 +682,6 @@ section {
     flex-shrink: 0;
 
     border: 1px solid var(--border);
-
     border-radius: 50%;
 
     color: var(--blue);
@@ -725,7 +735,6 @@ section {
     overflow: hidden;
 
     border: 1px solid var(--border);
-
     border-radius: 14px;
 
     background: #ffffff;
@@ -755,7 +764,6 @@ section {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     gap: 25px;
@@ -808,7 +816,6 @@ section {
     color: var(--blue);
 
     font-size: 0.72rem;
-
     font-weight: 800;
 
     letter-spacing: 0.03em;
@@ -818,7 +825,6 @@ section {
     color: var(--text);
 
     font-size: 1rem;
-
     font-weight: 700;
 }
 
@@ -855,7 +861,6 @@ section {
     justify-content: center;
 
     border: 1px solid var(--border);
-
     border-radius: 50%;
 
     color: var(--blue);
@@ -954,11 +959,9 @@ section {
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     margin-top: 35px;
-
     padding-top: 30px;
 
     border-top: 1px solid var(--border);
@@ -980,7 +983,7 @@ section {
 
 
 /* =========================================================
-   ACCOMPAGNEMENT INDIVIDUEL
+   ACCOMPAGNEMENT / SERVICE
 ========================================================= */
 
 .coaching-card {
@@ -989,19 +992,17 @@ section {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     gap: 50px;
 
-    margin-top: 28px;
+    margin-top: 30px;
 
-    padding: 32px 36px;
+    padding: 34px 38px;
 
     overflow: hidden;
 
     border: 1px solid var(--border-blue);
-
     border-radius: 20px;
 
     background:
@@ -1066,7 +1067,7 @@ section {
 
 
 /* =========================================================
-   ACCOMPAGNEMENT TAGS
+   SERVICE TAGS
 ========================================================= */
 
 .offer-tags {
@@ -1087,7 +1088,6 @@ section {
     padding: 6px 10px;
 
     border: 1px solid var(--border-blue);
-
     border-radius: 999px;
 
     background: var(--bg-blue);
@@ -1095,13 +1095,12 @@ section {
     color: var(--blue);
 
     font-size: 0.7rem;
-
     font-weight: 700;
 }
 
 
 /* =========================================================
-   ACCOMPAGNEMENT CONTACT
+   SERVICE CONTACT
 ========================================================= */
 
 .coaching-contact {
@@ -1128,7 +1127,7 @@ section {
 
 
 /* =========================================================
-   ACCOMPAGNEMENT PRICE
+   SERVICE PRICE
 ========================================================= */
 
 .coaching-right {
@@ -1137,7 +1136,6 @@ section {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 }
 
@@ -1155,7 +1153,6 @@ section {
     color: var(--blue);
 
     font-size: 2.2rem;
-
     font-weight: 800;
 
     line-height: 1;
@@ -1165,7 +1162,6 @@ section {
     color: var(--blue);
 
     font-size: 0.9rem;
-
     font-weight: 600;
 }
 
@@ -1181,13 +1177,16 @@ section {
         repeat(auto-fit, minmax(280px, 1fr));
 
     gap: 25px;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
 }
 
 .card {
     padding: 32px;
 
     border: 1px solid var(--border);
-
     border-radius: var(--radius);
 
     background: var(--card);
@@ -1208,10 +1207,95 @@ section {
     box-shadow: var(--shadow);
 }
 
+.card h3 {
+    line-height: 1.3;
+}
+
 .card p {
     margin-top: 13px;
 
     color: var(--muted);
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   IMAGE CONTAINER
+========================================================= */
+
+.image-container {
+    width: min(850px, 90%);
+
+    margin: 45px auto 0;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow: var(--shadow);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   VIDEO YOUTUBE
+========================================================= */
+
+/*
+   Utilisez cette structure :
+
+   <div class="video-container">
+       <iframe
+           src="https://www.youtube.com/embed/VIDEO_ID"
+           title="Présentation"
+           frameborder="0"
+           allowfullscreen>
+       </iframe>
+   </div>
+*/
+
+.video-container {
+    position: relative;
+
+    width: min(900px, 100%);
+
+    margin: 45px auto 0;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: #0f172a;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.video-container iframe {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
 }
 
 
@@ -1231,7 +1315,6 @@ section {
     overflow: hidden;
 
     border: 1px solid var(--border);
-
     border-radius: 26px;
 
     background: #ffffff;
@@ -1243,7 +1326,6 @@ section {
     display: flex;
 
     justify-content: space-between;
-
     align-items: flex-start;
 
     gap: 40px;
@@ -1255,7 +1337,6 @@ section {
     color: var(--blue);
 
     font-size: 0.7rem;
-
     font-weight: 800;
 
     letter-spacing: 0.15em;
@@ -1270,11 +1351,13 @@ section {
 }
 
 .project-header p {
-    max-width: 650px;
+    max-width: 700px;
 
     margin-top: 15px;
 
     color: var(--muted);
+
+    line-height: 1.7;
 }
 
 .project-status {
@@ -1283,7 +1366,6 @@ section {
     padding: 7px 13px;
 
     border: 1px solid var(--border-blue);
-
     border-radius: 20px;
 
     background: var(--bg-blue);
@@ -1291,7 +1373,6 @@ section {
     color: var(--blue);
 
     font-size: 0.72rem;
-
     font-weight: 600;
 }
 
@@ -1306,7 +1387,6 @@ section {
     padding: 22px;
 
     border: 1px solid var(--border);
-
     border-radius: 18px;
 
     background: #f8fafc;
@@ -1324,7 +1404,6 @@ section {
     padding: 18px;
 
     border: 1px solid var(--border);
-
     border-radius: 12px;
 
     background: #ffffff;
@@ -1364,7 +1443,6 @@ section {
     padding: 22px;
 
     border: 1px solid var(--border);
-
     border-radius: 12px;
 
     background: #ffffff;
@@ -1374,13 +1452,11 @@ section {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 }
 
 .chart-header span {
     font-size: 0.85rem;
-
     font-weight: 600;
 }
 
@@ -1431,7 +1507,6 @@ section {
     display: flex;
 
     align-items: flex-end;
-
     justify-content: space-around;
 
     gap: 10px;
@@ -1450,14 +1525,37 @@ section {
         );
 }
 
-.chart-bars span:nth-child(1) { height: 35%; }
-.chart-bars span:nth-child(2) { height: 45%; }
-.chart-bars span:nth-child(3) { height: 42%; }
-.chart-bars span:nth-child(4) { height: 58%; }
-.chart-bars span:nth-child(5) { height: 53%; }
-.chart-bars span:nth-child(6) { height: 68%; }
-.chart-bars span:nth-child(7) { height: 76%; }
-.chart-bars span:nth-child(8) { height: 88%; }
+.chart-bars span:nth-child(1) {
+    height: 35%;
+}
+
+.chart-bars span:nth-child(2) {
+    height: 45%;
+}
+
+.chart-bars span:nth-child(3) {
+    height: 42%;
+}
+
+.chart-bars span:nth-child(4) {
+    height: 58%;
+}
+
+.chart-bars span:nth-child(5) {
+    height: 53%;
+}
+
+.chart-bars span:nth-child(6) {
+    height: 68%;
+}
+
+.chart-bars span:nth-child(7) {
+    height: 76%;
+}
+
+.chart-bars span:nth-child(8) {
+    height: 88%;
+}
 
 .chart-line {
     position: absolute;
@@ -1529,7 +1627,6 @@ section {
     color: var(--text);
 
     font-size: 0.85rem;
-
     font-weight: 700;
 }
 
@@ -1568,7 +1665,6 @@ section {
     padding: 20px;
 
     border: 1px solid var(--border);
-
     border-radius: 14px;
 
     background: #f8fafc;
@@ -1580,7 +1676,6 @@ section {
     color: var(--blue);
 
     font-size: 0.75rem;
-
     font-weight: 700;
 }
 
@@ -1609,7 +1704,6 @@ section {
     display: flex;
 
     justify-content: space-between;
-
     align-items: flex-end;
 
     gap: 30px;
@@ -1629,7 +1723,6 @@ section {
     color: var(--muted);
 
     font-size: 0.65rem;
-
     font-weight: 700;
 
     letter-spacing: 0.12em;
@@ -1647,7 +1740,6 @@ section {
     padding: 6px 12px;
 
     border: 1px solid var(--border);
-
     border-radius: 20px;
 
     background: #ffffff;
@@ -1710,7 +1802,6 @@ section {
     overflow: hidden;
 
     border: 1px solid var(--border);
-
     border-radius: 22px;
 
     background: #ffffff;
@@ -1745,7 +1836,6 @@ section {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 }
 
@@ -1767,7 +1857,6 @@ section {
     color: var(--blue);
 
     font-size: 0.65rem;
-
     font-weight: 600;
 }
 
@@ -1827,7 +1916,6 @@ section {
     color: white;
 
     font-size: 0.7rem;
-
     font-weight: 700;
 }
 
@@ -1876,11 +1964,13 @@ section {
 
 .timeline p {
     color: var(--muted);
+
+    line-height: 1.7;
 }
 
 
 /* =========================================================
-   CONTACT
+   CONTACT / CTA FINAL
 ========================================================= */
 
 .contact {
@@ -1891,7 +1981,6 @@ section {
     padding: 70px 40px;
 
     border: 1px solid var(--border-blue);
-
     border-radius: 26px;
 
     background:
@@ -1910,6 +1999,8 @@ section {
     font-size: clamp(2rem, 4vw, 2.8rem);
 
     line-height: 1.15;
+
+    letter-spacing: -0.035em;
 }
 
 .contact p {
@@ -1920,6 +2011,8 @@ section {
     color: var(--muted);
 
     font-size: 1.05rem;
+
+    line-height: 1.7;
 }
 
 .contact .button {
@@ -1955,19 +2048,19 @@ section {
 @media (max-width: 950px) {
 
     section {
-        padding: 80px 0;
+        padding: 85px 0;
     }
 
     .hero {
         min-height: auto;
 
-        padding: 100px 0 80px;
+        padding: 100px 0 90px;
     }
 
     .hero-grid {
         grid-template-columns: 1fr;
 
-        gap: 60px;
+        gap: 65px;
 
         text-align: center;
     }
@@ -1984,8 +2077,6 @@ section {
     }
 
     .profile-card {
-        order: -1;
-
         max-width: 500px;
 
         margin: 0 auto;
@@ -1994,7 +2085,9 @@ section {
     .about {
         grid-template-columns: 1fr;
 
-        gap: 45px;
+        gap: 50px;
+
+        max-width: 750px;
 
         text-align: center;
     }
@@ -2054,11 +2147,24 @@ section {
     }
 
     .title {
-        margin-bottom: 45px;
+        margin-bottom: 42px;
     }
 
+    .section-heading {
+        margin-bottom: 42px;
+    }
+
+    .section-intro {
+        margin-top: -20px;
+
+        font-size: 1rem;
+    }
+
+
+    /* HERO */
+
     .hero {
-        padding: 80px 0 60px;
+        padding: 75px 0 65px;
     }
 
     .hero h1 {
@@ -2068,6 +2174,9 @@ section {
     .hero p {
         font-size: 1.05rem;
     }
+
+
+    /* PROFILE */
 
     .photo {
         width: 230px;
@@ -2079,7 +2188,30 @@ section {
     }
 
 
-    /* Formation */
+    /* ABOUT */
+
+    .about {
+        gap: 40px;
+    }
+
+    .about p {
+        font-size: 1rem;
+    }
+
+
+    /* SKILLS */
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* FORMATION */
+
+    .offer-section {
+        padding-top: 75px;
+        padding-bottom: 80px;
+    }
 
     .offer-main {
         padding: 30px 22px;
@@ -2104,7 +2236,7 @@ section {
     }
 
 
-    /* Programme */
+    /* PROGRAMME */
 
     .program-details > summary {
         padding: 19px 2px;
@@ -2150,7 +2282,7 @@ section {
     }
 
 
-    /* Accompagnement */
+    /* SERVICE */
 
     .coaching-card {
         flex-direction: column;
@@ -2175,7 +2307,29 @@ section {
     }
 
 
-    /* Projet */
+    /* IMAGE */
+
+    .image-container {
+        width: 100%;
+
+        margin-top: 35px;
+
+        border-radius: 15px;
+    }
+
+
+    /* VIDEO */
+
+    .video-container {
+        width: 100%;
+
+        margin-top: 35px;
+
+        border-radius: 15px;
+    }
+
+
+    /* PROJECT */
 
     .project-header {
         flex-direction: column;
@@ -2230,7 +2384,7 @@ section {
     }
 
 
-    /* Testimonials */
+    /* TESTIMONIALS */
 
     .testimonial-card {
         min-height: 320px;
@@ -2239,31 +2393,13 @@ section {
     }
 
 
-    /* Contact */
+    /* CONTACT */
 
     .contact {
         padding: 50px 25px;
     }
 }
 
-.image-container {
-    width: 76%;
-    height: 76%;
-
-    margin: 25px auto 0;
-    border: 1px solid var(--border);
-    overflow: hidden;
-    border-radius: 20px;
-}
-
-.image-container img {
-    width: 100%;
-    height: 100%;
-    display: block;
-
-    object-fit: cover;
-    object-position: center;
-}
 
 /* =========================================================
    RESPONSIVE — SMALL MOBILE
@@ -2275,14 +2411,23 @@ section {
         font-size: 2.25rem;
     }
 
+    .hero p {
+        font-size: 1rem;
+    }
+
     .button {
         width: 100%;
 
         padding: 13px 26px;
     }
 
-    .skills {
-        grid-template-columns: 1fr;
+    .photo {
+        width: 210px;
+        height: 210px;
+    }
+
+    .offer-main {
+        padding: 26px 18px;
     }
 
     .dashboard-top {
@@ -2321,5 +2466,9 @@ section {
 
     .coaching-price span {
         font-size: 0.8rem;
+    }
+
+    .video-container {
+        border-radius: 12px;
     }
 }
