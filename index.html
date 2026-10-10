@@ -1,35 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cilerium | Automatisation Finance & Data</title>
-  <meta name="description" content="Cilerium accompagne les entreprises en automatisation Finance & Data : reporting, dashboards, rapprochements comptables, contrôle de gestion et optimisation Excel.">
-  <meta name="theme-color" content="#0c1422">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0e">
+  <meta name="description" content="Cilerium — Coaching individuel en Excel, Power Query, Power BI et IA appliquée à la data.">
+  <title>Cilerium — Finance & Data</title>
 
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #0c1422;
-      --surface: #111d2e;
-      --surface-2: #172438;
-      --surface-3: #1d2c42;
-      --line: #2b3a50;
-      --ink: #edf2f8;
-      --muted: #a1aec0;
-      --subtle: #77879d;
-      --accent: #82a9e8;
-      --accent-hover: #a1c0f1;
-      --accent-soft: #1d304b;
-      --success: #69c5a5;
-      --success-soft: #19382f;
-      --radius: 10px;
-      --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --mono: "SFMono-Regular", Consolas, monospace;
+      --bg: #0b0c0e;
+      --panel: #131619;
+      --panel-2: #191d20;
+      --line: #30363a;
+      --text: #f0f1f2;
+      --muted: #adb4b9;
+      --accent: #79e0c3;
+      --accent-dark: #193d34;
+      --radius: 14px;
+      --max-width: 1120px;
     }
 
     * {
@@ -44,146 +34,58 @@
     }
 
     body {
-      min-height: 100vh;
-      overflow-x: hidden;
       background: var(--bg);
-      color: var(--ink);
-      font: 15px/1.75 var(--font);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-    }
-
-    html[lang="en"] f,
-    html[lang="fr"] e {
-      display: none;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
     button {
       font: inherit;
     }
 
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    :focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 4px;
-    }
-
-    ::selection {
-      background: var(--accent);
-      color: #0c1422;
+    img {
+      max-width: 100%;
     }
 
     .wrap {
-      width: min(1120px, calc(100% - 48px));
-      margin: 0 auto;
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
     }
 
-    h1, h2, h3, h4 {
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: -.035em;
-    }
-
-    h1 {
-      font-size: clamp(2.6rem, 5.5vw, 4.6rem);
-      line-height: 1.08;
-      letter-spacing: -.055em;
-    }
-
-    h2 {
-      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
-      margin-bottom: 16px;
-    }
-
-    h3 {
-      font-size: 1.08rem;
-    }
-
-    p {
-      color: var(--muted);
-    }
-
-    section {
-      padding: 84px 0;
-    }
-
-    .lead {
-      max-width: 760px;
-      font-size: 1.04rem;
-      line-height: 1.85;
-      margin-bottom: 36px;
-    }
-
-    .grad {
-      color: var(--accent);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 22px;
-      color: var(--accent);
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: currentColor;
-    }
-
-    /* Navigation */
-
-    nav {
+    header {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(12, 20, 34, .94);
+      background: rgba(11, 12, 14, .94);
       border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(14px);
     }
 
-    nav .wrap {
+    .nav {
       min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      text-decoration: none;
-      font-size: 1.12rem;
+      font-size: 21px;
       font-weight: 800;
-      letter-spacing: -.04em;
+      letter-spacing: -.8px;
     }
 
-    .logo-mark {
-      width: 29px;
-      height: 29px;
-      display: grid;
-      place-items: center;
-      border: 1px solid #5275a3;
-      border-radius: 5px;
+    .logo span,
+    .accent {
       color: var(--accent);
-      font-size: .8rem;
-      font-weight: 800;
-      letter-spacing: -.06em;
     }
 
     .nav-right {
@@ -195,222 +97,208 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 18px;
-    }
-
-    .nav-links a {
+      gap: 19px;
       color: var(--muted);
-      font-size: .8rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color .18s;
+      font-size: 12px;
     }
 
-    .nav-links a:hover {
-      color: var(--ink);
+    .nav-links a:hover,
+    footer a:hover {
+      color: var(--accent);
     }
 
     .lang {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       padding: 4px;
       border: 1px solid var(--line);
-      border-radius: 7px;
-      background: var(--surface);
+      border-radius: 100px;
     }
 
     .lang button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px 9px;
+      cursor: pointer;
       border: 0;
-      border-radius: 4px;
       background: transparent;
       color: var(--muted);
-      font-size: .78rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background .18s, color .18s;
+      padding: 5px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .lang button:hover {
-      color: var(--ink);
+    .lang button.active {
+      background: var(--accent);
+      color: #08100e;
     }
 
-    html[lang="fr"] .lang button[data-l="fr"],
-    html[lang="en"] .lang button[data-l="en"] {
-      background: var(--surface-3);
-      color: var(--ink);
+    section {
+      padding: 82px 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    /* Buttons */
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    h1, h2, h3, p {
+      overflow-wrap: break-word;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.06;
+      letter-spacing: -2.5px;
+      font-weight: 780;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.15;
+      letter-spacing: -1.4px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 17px;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 700px;
+      line-height: 1.85;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #31594e;
+      background: rgba(121, 224, 195, .07);
+      color: var(--accent);
+      border-radius: 100px;
+      padding: 7px 13px;
+      font-size: 12px;
+      font-weight: 650;
+      margin-bottom: 22px;
+    }
+
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
 
     .btn {
-      min-height: 48px;
-      padding: 0 22px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--surface-2);
-      color: var(--ink);
-      font-size: .9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background .18s, border-color .18s, transform .18s;
+      gap: 9px;
+      min-height: 45px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 750;
+      transition: transform .18s, background .18s, border-color .18s;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
-      border-color: #526681;
-      background: var(--surface-3);
+      transform: translateY(-2px);
     }
 
-    .btn.blue {
-      border-color: var(--accent);
+    .btn-primary {
+      color: #08100e;
       background: var(--accent);
-      color: #0c1422;
+      border: 1px solid var(--accent);
     }
 
-    .btn.blue:hover {
-      background: var(--accent-hover);
+    .btn-primary:hover {
+      background: #9aecd7;
+      border-color: #9aecd7;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 27px;
     }
 
-    /* Hero */
-
     .hero {
-      padding: 92px 0 72px;
-      border-bottom: 1px solid var(--line);
+      padding: 86px 0;
       background:
-        radial-gradient(ellipse at 78% 8%, rgba(91, 129, 185, .12), transparent 42%),
+        radial-gradient(ellipse at 12% 8%, rgba(121, 224, 195, .07), transparent 42%),
         var(--bg);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 260px;
+      grid-template-columns: minmax(0, 1.3fr) minmax(250px, .7fr);
       align-items: center;
-      gap: 72px;
+      gap: 58px;
     }
 
-    .hero h1 {
-      max-width: 760px;
-      margin-bottom: 24px;
+    .hero .lead {
+      font-size: 17px;
     }
 
-    .hero-copy {
-      max-width: 690px;
-      font-size: 1.05rem;
-    }
-
-    .hero .actions {
-      margin-top: 30px;
-    }
-
-    .profile {
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-    }
-
-    .profile-photo {
+    .hero-photo {
       position: relative;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      aspect-ratio: 1;
-      background: var(--surface-3);
-      color: var(--accent);
-      font-size: 4rem;
-      font-weight: 700;
-    }
-
-    .profile-photo img {
-      position: absolute;
-      inset: 0;
+      max-width: 340px;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      justify-self: center;
+      padding: 10px;
+      border: 1px solid #31594e;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #193d34, #131619);
     }
 
-    .profile h3 {
-      margin: 16px 4px 2px;
-    }
-
-    .profile p {
-      margin: 0 4px 8px;
-      font-size: .86rem;
-    }
-
-    .profile > a {
-      display: inline-block;
-      margin: 0 4px 7px;
-      color: var(--accent);
-      font-size: .83rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .profile > a:hover {
-      text-decoration: underline;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 58px;
-    }
-
-    .hero-stat {
-      padding: 19px 20px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(17, 29, 46, .65);
-    }
-
-    .hero-stat strong {
+    .hero-photo img {
       display: block;
-      margin-bottom: 4px;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 15px;
+      background: var(--panel-2);
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 24px;
+      left: -20px;
+      background: #151a18;
+      border: 1px solid #31594e;
+      border-radius: 9px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 750;
       color: var(--accent);
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .hero-stat span {
-      color: var(--muted);
-      font-size: .8rem;
-    }
-
-    /* Shared sections */
-
-    .section-head {
-      max-width: 800px;
-      margin-bottom: 32px;
-    }
-
-    .tag {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 5px 10px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: var(--surface);
-      color: var(--accent);
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .04em;
     }
 
     .grid {
@@ -418,494 +306,450 @@
       gap: 16px;
     }
 
-    .g3 {
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .card {
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .card h3 {
-      margin-bottom: 8px;
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-width: 0;
     }
 
     .card p {
-      font-size: .89rem;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
     }
 
-    .card-index {
-      display: inline-block;
-      margin-bottom: 20px;
+    .module-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--accent-dark);
       color: var(--accent);
-      font: 600 .8rem var(--mono);
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 18px;
     }
 
     .pills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 22px;
+      margin-top: 18px;
     }
 
-    .pills span {
-      padding: 6px 10px;
+    .pill {
       border: 1px solid var(--line);
-      border-radius: 4px;
-      background: var(--surface);
       color: var(--muted);
-      font-size: .78rem;
-      font-weight: 500;
-    }
-
-    .sub {
-      margin: 58px 0 10px;
-      font-size: 1.45rem;
-    }
-
-    .note {
-      margin-bottom: 22px;
-      font-size: .86rem;
-    }
-
-    /* Case studies */
-
-    .cases {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      align-items: stretch;
-      gap: 16px;
-      margin-top: 22px;
+      border-radius: 100px;
+      padding: 5px 10px;
+      font-size: 11px;
     }
 
     .case {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      padding: 24px;
       border: 1px solid var(--line);
+      background: var(--panel);
       border-radius: var(--radius);
-      background: var(--surface);
+      padding: 25px;
+      transition: border-color .2s, transform .2s;
     }
 
-    .case .k {
-      align-self: flex-start;
-      margin-bottom: 17px;
+    .case:hover {
+      border-color: #42665c;
+      transform: translateY(-2px);
+    }
+
+    .case-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .case-label {
+      display: inline-block;
       color: var(--accent);
-      font-size: .69rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-    }
-
-    .case h3 {
-      margin-bottom: 15px;
-      font-size: 1.08rem;
-    }
-
-    .pb {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
       margin-bottom: 9px;
-      font-size: .84rem;
-      line-height: 1.7;
     }
 
-    .pb b {
-      color: var(--ink);
-      font-weight: 600;
+    .case p {
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .metric {
-      margin-top: 20px;
-    }
-
-    .metric h4 {
-      margin-bottom: 12px;
-      color: var(--muted);
-      font-size: .73rem;
-      font-weight: 600;
-      letter-spacing: .025em;
-    }
-
-    .bar-row {
-      display: grid;
-      grid-template-columns: 48px minmax(0, 1fr) 58px;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: .73rem;
-    }
-
-    .bar-row > span {
-      color: var(--muted);
-    }
-
-    .bar-row b {
-      color: var(--ink);
+      min-width: 88px;
       text-align: right;
-      font-size: .76rem;
-      font-weight: 600;
-      white-space: nowrap;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--accent);
+      font-size: 27px;
+      line-height: 1.1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .chart {
+      display: grid;
+      gap: 13px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .tr {
+      display: grid;
+      grid-template-columns: minmax(95px, 130px) minmax(0, 1fr) 40px;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--muted);
     }
 
     .track {
       height: 7px;
+      background: #292e31;
+      border-radius: 20px;
       overflow: hidden;
-      border-radius: 2px;
-      background: var(--surface-3);
     }
 
-    .track i {
+    .tr i {
       display: block;
       width: calc(var(--w) * 1%);
       height: 100%;
-      min-width: 0;
-      border-radius: 2px;
-      background: #52637a;
-      transition: width 1s cubic-bezier(.2, .7, .2, 1);
-    }
-
-    .track i.after {
       background: var(--accent);
+      border-radius: 20px;
     }
 
-    .js .track i {
-      width: 0;
+    .tr b {
+      color: var(--text);
+      font-size: 11px;
+      text-align: right;
     }
-
-    .js .case.in .track i {
-      width: calc(var(--w) * 1%);
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: auto;
-      padding-top: 22px;
-    }
-
-    .chips span {
-      padding: 4px 8px;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      color: var(--muted);
-      font-size: .69rem;
-    }
-
-    /* Donut chart */
-
-    .donut {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin: 20px 0 6px;
-    }
-
-    .donut-wrap {
-      position: relative;
-      flex: 0 0 88px;
-      width: 88px;
-      height: 88px;
-    }
-
-    .donut-wrap svg {
-      width: 88px;
-      height: 88px;
-      transform: rotate(-90deg);
-    }
-
-    .donut-wrap circle {
-      fill: none;
-      stroke-width: 9;
-    }
-
-    .donut-wrap .donut-bg {
-      stroke: var(--surface-3);
-    }
-
-    .donut-wrap .donut-fg {
-      stroke: var(--success);
-      stroke-linecap: butt;
-      stroke-dasharray: 236 251.33;
-      transition: stroke-dasharray 1s ease;
-    }
-
-    .js .donut-wrap .donut-fg {
-      stroke-dasharray: 0 251.33;
-    }
-
-    .js .case.in .donut-wrap .donut-fg {
-      stroke-dasharray: 236 251.33;
-    }
-
-    .donut-percent {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .donut ul {
-      list-style: none;
-      color: var(--muted);
-      font-size: .79rem;
-    }
-
-    .donut li + li {
-      margin-top: 5px;
-    }
-
-    .donut b {
-      color: var(--ink);
-    }
-
-    /* Formula comparison */
-
-    .lbl {
-      margin: 13px 0 5px;
-      color: var(--muted);
-      font-size: .69rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-    }
-
-    pre {
-      overflow-wrap: anywhere;
-      white-space: pre-wrap;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      font: .72rem/1.65 var(--mono);
-    }
-
-    pre.before {
-      background: #141e2d;
-      color: #a9b4c4;
-    }
-
-    pre.after {
-      background: var(--accent-soft);
-      color: var(--ink);
-    }
-
-    /* Methodology */
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      counter-reset: step;
+      gap: 0;
+      margin-top: 22px;
     }
 
-    .steps > div {
-      counter-increment: step;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-    }
-
-    .steps > div::before {
-      content: "0" counter(step);
-      display: block;
-      margin-bottom: 23px;
-      color: var(--accent);
-      font: 600 1rem var(--mono);
-    }
-
-    .steps h3 {
-      margin-bottom: 8px;
-    }
-
-    .steps p {
-      font-size: .85rem;
-    }
-
-    /* About */
-
-    .about-section {
-      border-top: 1px solid var(--line);
+    .step {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 18px;
+      padding: 21px 0;
       border-bottom: 1px solid var(--line);
-      background: #0f1928;
     }
 
-    .about {
-      max-width: 800px;
+    .step:last-child {
+      border-bottom: 0;
     }
 
-    .about p + p {
-      margin-top: 14px;
-    }
-
-    /* Contact */
-
-    .cta {
-      text-align: center;
-    }
-
-    .cta .lead {
-      margin-inline: auto;
-    }
-
-    .cta-box {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 46px 34px;
-      border: 1px solid var(--line);
-      border-top: 2px solid var(--accent);
-      border-radius: var(--radius);
-      background: var(--surface);
-    }
-
-    .cta-box p {
-      max-width: 540px;
-      margin: 0 auto 25px;
-      font-size: .93rem;
-    }
-
-    .cta-box .actions {
-      justify-content: center;
-    }
-
-    footer.site {
-      padding: 25px 0;
-      border-top: 1px solid var(--line);
-      color: var(--subtle);
-      text-align: center;
-      font-size: .79rem;
-    }
-
-    footer.site a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    footer.site a:hover {
+    .step-num {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #31594e;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
       color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
     }
 
-    /* Responsive */
-
-    @media (max-width: 960px) {
-      section {
-        padding: 64px 0;
-      }
-
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr) 220px;
-        gap: 34px;
-      }
-
-      .g3, .cases {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .steps {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    @media (max-width: 700px) {
-      .wrap {
-        width: min(100% - 32px, 1120px);
-      }
+    .offer {
+      border: 1px solid #31594e;
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, #151e1a, #111316 75%);
+      padding: 30px;
+    }
 
-      nav .wrap {
-        min-height: 64px;
-        gap: 8px;
-      }
+    .offer-price {
+      font-size: 46px;
+      line-height: 1.1;
+      font-weight: 800;
+      margin: 20px 0 6px;
+    }
 
-      .logo {
-        gap: 7px;
-        font-size: 1rem;
-      }
+    .offer-price small {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
 
-      .logo-mark {
-        width: 26px;
-        height: 26px;
-      }
+    .offer ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+    }
 
-      .nav-right {
-        gap: 8px;
-      }
+    .offer li {
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      gap: 10px;
+    }
 
+    .offer li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .quote {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .quote-mark {
+      color: var(--accent);
+      font-size: 35px;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .quote blockquote {
+      color: #d5d8db;
+      font-size: 13px;
+      line-height: 1.8;
+      flex: 1;
+      margin-bottom: 22px;
+    }
+
+    .quote-author {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .quote-author strong {
+      display: block;
+      font-size: 12px;
+    }
+
+    .quote-author span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 38px;
+      align-items: start;
+    }
+
+    .about-photo {
+      position: relative;
+      max-width: 350px;
+    }
+
+    .about-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+
+    .about-details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      background: var(--panel);
+      margin-top: 24px;
+    }
+
+    .detail-row {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-row:last-child {
+      border-bottom: 0;
+    }
+
+    .detail-row span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .detail-row strong {
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .contact-box {
+      padding: clamp(28px, 6vw, 60px);
+      border: 1px solid #31594e;
+      background: linear-gradient(135deg, #15231e, #101214 75%);
+      border-radius: 18px;
+    }
+
+    .contact-box h2 {
+      max-width: 700px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-inner p,
+    .footer-inner a {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    f, e {
+      display: inline;
+    }
+
+    html[lang="fr"] e,
+    html[lang="en"] f {
+      display: none;
+    }
+
+    @media (max-width: 1000px) {
       .nav-links {
         display: none;
       }
 
-      .lang {
-        gap: 0;
+      .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .lang button {
-        padding: 7px;
-        font-size: .72rem;
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-grid {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .wrap {
+        width: min(100% - 32px, var(--max-width));
+      }
+
+      .nav {
+        min-height: 64px;
+      }
+
+      section {
+        padding: 62px 0;
       }
 
       .hero {
-        padding: 54px 0 58px;
+        padding: 58px 0;
       }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.35rem, 10vw, 3.5rem);
-      }
-
-      .profile {
-        max-width: 240px;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-        gap: 9px;
-        margin-top: 36px;
-      }
-
-      .hero-stat {
-        padding: 15px 17px;
-      }
-
-      .g3, .cases, .steps {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .about-box {
         grid-template-columns: 1fr;
       }
 
-      .card, .case {
-        padding: 22px;
+      .hero-photo {
+        max-width: 280px;
+        margin-top: 12px;
       }
 
-      .cta-box {
-        padding: 32px 20px;
+      h1 {
+        letter-spacing: -1.7px;
       }
 
-      .actions .btn {
-        width: 100%;
+      h2 {
+        letter-spacing: -1px;
       }
 
-      .sub {
-        margin-top: 42px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .logo span:last-child {
-        display: none;
+      .card,
+      .case {
+        padding: 20px;
       }
 
-      .bar-row {
-        grid-template-columns: 42px minmax(0, 1fr) 53px;
-        gap: 6px;
+      .case-top {
+        flex-direction: column;
+      }
+
+      .metric {
+        text-align: left;
+      }
+
+      .tr {
+        grid-template-columns: 90px minmax(0, 1fr) 32px;
+        gap: 7px;
+      }
+
+      .offer {
+        padding: 23px;
+      }
+
+      .about-photo {
+        max-width: 270px;
+        margin-inline: auto;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
 
@@ -914,8 +758,9 @@
         scroll-behavior: auto;
       }
 
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
+      *,
+      *::before,
+      *::after {
         transition-duration: .01ms !important;
       }
     }
@@ -923,365 +768,488 @@
 </head>
 
 <body>
-  <nav aria-label="Navigation principale">
-    <div class="wrap">
-      <a href="#top" class="logo" aria-label="Cilerium - Entreprise">
-        <span class="logo-mark">C.</span>
-        <span>CILERIUM</span>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#coaching" aria-label="Cilerium">
+        cilerium<span>.</span>
       </a>
 
-      <div class="nav-right">
-        <div class="nav-links">
-          <a href="#expertise"><f>Expertises</f><e>Expertise</e></a>
-          <a href="#cas-usage"><f>Cas d'usage</f><e>Use cases</e></a>
-          <a href="#methode"><f>Méthode</f><e>Method</e></a>
-          <a href="#contact"><f>Contact</f><e>Contact</e></a>
-        </div>
+      <nav class="nav-links" aria-label="Navigation">
+        <a href="#modules"><f>Formations</f><e>Training</e></a>
+        <a href="#exemples"><f>Exemples</f><e>Examples</e></a>
+        <a href="#methode"><f>Méthode</f><e>Approach</e></a>
+        <a href="#tarif"><f>Tarifs</f><e>Pricing</e></a>
+        <a href="#about"><f>À propos</f><e>About</e></a>
+      </nav>
 
-        <div class="lang" role="group" aria-label="Language">
-          <button type="button" data-l="fr" aria-label="Français" aria-pressed="true">FR</button>
-          <button type="button" data-l="en" aria-label="English" aria-pressed="false">EN</button>
+      <div class="nav-right">
+        <div class="lang" aria-label="Choisir la langue">
+          <button type="button" class="active" data-lang="fr" aria-pressed="true">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <header class="hero">
-      <div class="wrap">
-        <div class="hero-grid">
-          <div>
-            <span class="eyebrow">Finance &amp; Data</span>
-
-            <h1>
-              <f>Moins de tâches manuelles.<br>Plus de <span class="grad">maîtrise.</span></f>
-              <e>Less manual work.<br>More <span class="grad">control.</span></e>
-            </h1>
-
-            <p class="hero-copy">
-              <f>J'aide les directions financières, contrôleurs de gestion et équipes comptables à automatiser leurs reportings, fiabiliser leurs données et construire des outils de pilotage adaptés à leurs enjeux.</f>
-              <e>I help finance departments, controllers and accounting teams automate reporting, improve data reliability and build management tools tailored to their needs.</e>
-            </p>
-
-            <div class="actions">
-              <a class="btn blue" href="#cas-usage">
-                <f>Voir les cas d'usage ↓</f>
-                <e>Explore the use cases ↓</e>
-              </a>
-              <a class="btn" href="#contact">
-                <f>Parler de mon projet →</f>
-                <e>Discuss my project →</e>
-              </a>
-            </div>
+  <main>
+    <!-- ACCUEIL -->
+    <section id="coaching" class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="tag">
+            <span class="tag-dot"></span>
+            <f>Finance · Data · Formation</f>
+            <e>Finance · Data · Training</e>
           </div>
 
-          <aside class="profile">
-            <div class="profile-photo">
-              A
-              <img src="pp.jpeg" alt="Alexandre" onerror="this.style.display='none'">
-            </div>
-            <h3>Alexandre</h3>
-            <p>
-              <f>Analyste financier &amp; Data</f>
-              <e>Financial &amp; Data Analyst</e>
-            </p>
-            <a href="https://www.linkedin.com/in/alexandre-grondin-2774b81b7/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          </aside>
-        </div>
+          <h1>
+            <f>Des compétences <span class="accent">directement applicables.</span></f>
+            <e>Skills you can <span class="accent">apply immediately.</span></e>
+          </h1>
 
-        <div class="hero-stats" aria-label="Domaines d'intervention">
-          <div class="hero-stat">
-            <strong><f>Automatiser</f><e>Automate</e></strong>
-            <span><f>Réduire les tâches répétitives et le temps de production.</f><e>Reduce repetitive tasks and production time.</e></span>
-          </div>
-          <div class="hero-stat">
-            <strong><f>Fiabiliser</f><e>Improve reliability</e></strong>
-            <span><f>Structurer les données et renforcer les contrôles.</f><e>Structure data and strengthen controls.</e></span>
-          </div>
-          <div class="hero-stat">
-            <strong><f>Piloter</f><e>Manage</e></strong>
-            <span><f>Transformer les chiffres en indicateurs exploitables.</f><e>Turn figures into actionable indicators.</e></span>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- EXPERTISE -->
-    <section id="expertise">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="tag"><f>Entreprise · Conseil &amp; Automatisation</f><e>Business · Consulting &amp; Automation</e></span>
-          <h2><f>Des outils conçus autour de vos processus.</f><e>Tools designed around your processes.</e></h2>
           <p class="lead">
-            <f>L'objectif n'est pas d'ajouter un outil de plus, mais de simplifier le travail existant : moins de manipulations, des contrôles plus lisibles et une information disponible au bon moment.</f>
-            <e>The goal is not to add another tool, but to simplify existing work: fewer manual steps, clearer controls and information available when it is needed.</e>
+            <f>
+              Des cours individuels adaptés à votre niveau et à vos objectifs.
+              Apprenez à automatiser vos tâches, à exploiter vos données et à
+              construire des outils que vous pourrez utiliser immédiatement
+              dans votre travail.
+            </f>
+            <e>
+              One-to-one lessons tailored to your level and goals. Learn to
+              automate tasks, work with data and build tools you can use
+              immediately in your day-to-day work.
+            </e>
           </p>
+
+          <div class="actions">
+            <a class="btn btn-primary"
+               href="https://calendar.google.com/calendar/u/0/appointments/schedules/"
+               target="_blank" rel="noopener noreferrer">
+              <f>Réserver un créneau ↗</f>
+              <e>Book a time slot ↗</e>
+            </a>
+            <a class="btn btn-secondary" href="#modules">
+              <f>Découvrir les cours ↓</f>
+              <e>Explore the lessons ↓</e>
+            </a>
+          </div>
         </div>
 
-        <div class="grid g3">
-          <article class="card">
-            <span class="card-index">01 / PRODUCTIVITÉ</span>
-            <h3><f>Automatiser</f><e>Automate</e></h3>
-            <p>
-              <f>Automatiser les tâches répétitives, les consolidations et la production de reportings pour réduire le temps passé sur les opérations manuelles.</f>
-              <e>Automate repetitive tasks, consolidations and reporting to reduce time spent on manual operations.</e>
-            </p>
-          </article>
 
-          <article class="card">
-            <span class="card-index">02 / FIABILITÉ</span>
-            <h3><f>Fiabiliser</f><e>Improve reliability</e></h3>
-            <p>
-              <f>Structurer, consolider et contrôler les données pour identifier plus facilement les anomalies et limiter les erreurs de traitement.</f>
-              <e>Structure, consolidate and validate data to identify anomalies more easily and reduce processing errors.</e>
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="card-index">03 / PILOTAGE</span>
-            <h3><f>Décider</f><e>Make decisions</e></h3>
-            <p>
-              <f>Transformer les données financières en indicateurs, tableaux de bord et analyses utiles à la prise de décision.</f>
-              <e>Turn financial data into indicators, dashboards and analyses that support decision-making.</e>
-            </p>
-          </article>
-        </div>
-
-        <div class="pills" aria-label="Prestations">
-          <span><f>Reporting financier</f><e>Financial reporting</e></span>
-          <span>Dashboards</span>
-          <span><f>Contrôle de gestion</f><e>Management control</e></span>
-          <span>Budget &amp; Forecast</span>
-          <span><f>Analyse financière</f><e>Financial analysis</e></span>
-          <span><f>Outils comptables</f><e>Accounting tools</e></span>
-          <span><f>Simulation &amp; scénarios</f><e>Simulation &amp; scenarios</e></span>
-          <span><f>Optimisation Excel</f><e>Excel optimization</e></span>
-        </div>
-      </div>
     </section>
 
-    <!-- USE CASES -->
-    <section id="cas-usage" style="background:#0f1928;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <!-- MODULES -->
+    <section id="modules">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow"><f>Illustrations</f><e>Examples</e></span>
-          <h2><f>Des processus manuels à des flux maîtrisés.</f><e>From manual processes to controlled workflows.</e></h2>
-          <p class="note">
-            <f>Illustrations de projets types. Les chiffres ci-dessous sont indicatifs et ne constituent pas des résultats clients garantis.</f>
-            <e>Illustrative project examples. Figures below are indicative and are not guaranteed client results.</e>
+          <div class="eyebrow"><f>Les formations</f><e>Training modules</e></div>
+          <h2>
+            <f>Les bons outils, <span class="accent">au bon niveau.</span></f>
+            <e>The right tools, <span class="accent">at the right level.</span></e>
+          </h2>
+          <p class="lead">
+            <f>Le contenu est adapté à votre niveau, à vos fichiers et à vos problématiques concrètes.</f>
+            <e>Content is tailored to your level, your files and your practical challenges.</e>
           </p>
         </div>
 
-        <div class="cases">
-          <!-- CASE 1 -->
-          <article class="case">
-            <span class="k">01 / REPORTING</span>
-            <h3><f>Reporting mensuel automatisé</f><e>Automated monthly reporting</e></h3>
-
-            <p class="pb">
-              <b><f>Avant :</f><e>Before:</e></b>
-              <f>6 fichiers Excel consolidés manuellement à chaque clôture.</f>
-              <e>6 Excel files manually consolidated at every close.</e>
+        <div class="grid grid-4">
+          <article class="card">
+            <div class="module-icon">XL</div>
+            <h3>Excel</h3>
+            <p>
+              <f>Formules, tableaux croisés dynamiques, structuration des données et automatisation des tâches répétitives.</f>
+              <e>Formulas, pivot tables, data structuring and automation of repetitive tasks.</e>
             </p>
-            <p class="pb">
-              <b><f>Après :</f><e>After:</e></b>
-              <f>Collecte, consolidation, contrôles et génération automatisés.</f>
-              <e>Automated collection, consolidation, checks and report generation.</e>
-            </p>
-
-            <div class="metric">
-              <h4><f>Temps de production</f><e>Production time</e></h4>
-              <div class="bar-row">
-                <span><f>Avant</f><e>Before</e></span>
-                <div class="track"><i style="--w:100"></i></div>
-                <b>18 h</b>
-              </div>
-              <div class="bar-row">
-                <span><f>Après</f><e>After</e></span>
-                <div class="track"><i class="after" style="--w:2.8"></i></div>
-                <b>30 min</b>
-              </div>
+            <div class="pills">
+              <span class="pill">Formules</span><span class="pill">TCD</span><span class="pill">Automatisation</span>
             </div>
-
-            <div class="metric">
-              <h4><f>Erreurs par clôture</f><e>Errors per close</e></h4>
-              <div class="bar-row">
-                <span><f>Avant</f><e>Before</e></span>
-                <div class="track"><i style="--w:100"></i></div>
-                <b>7</b>
-              </div>
-              <div class="bar-row">
-                <span><f>Après</f><e>After</e></span>
-                <div class="track"><i class="after" style="--w:0"></i></div>
-                <b>0</b>
-              </div>
-            </div>
-
-            <div class="chips"><span>Python</span><span>Excel</span></div>
           </article>
 
-          <!-- CASE 2 -->
-          <article class="case">
-            <span class="k"><f>02 / COMPTABILITÉ</f><e>02 / ACCOUNTING</e></span>
-            <h3><f>Rapprochements automatiques</f><e>Automated reconciliation</e></h3>
-
-            <p class="pb">
-              <b><f>Avant :</f><e>Before:</e></b>
-              <f>Contrôles ligne par ligne et traitement manuel des écarts.</f>
-              <e>Line-by-line checks and manual discrepancy handling.</e>
+          <article class="card">
+            <div class="module-icon">PQ</div>
+            <h3>Power Query</h3>
+            <p>
+              <f>Nettoyer, transformer et consolider plusieurs sources de données avec des processus reproductibles.</f>
+              <e>Clean, transform and consolidate multiple data sources using repeatable processes.</e>
             </p>
-            <p class="pb">
-              <b><f>Après :</f><e>After:</e></b>
-              <f>Rapprochement automatique et liste d'anomalies à analyser.</f>
-              <e>Automated matching and a list of exceptions to review.</e>
-            </p>
-
-            <div class="donut">
-              <div class="donut-wrap" role="img" aria-label="94 % des lignes rapprochées automatiquement">
-                <svg viewBox="0 0 96 96" aria-hidden="true">
-                  <circle class="donut-bg" cx="48" cy="48" r="40"></circle>
-                  <circle class="donut-fg" cx="48" cy="48" r="40"></circle>
-                </svg>
-                <span class="donut-percent">94%</span>
-              </div>
-              <ul>
-                <li><b>11 656</b> <f>rapprochées automatiquement</f><e>auto-matched</e></li>
-                <li><b>744</b> <f>à justifier</f><e>to review</e></li>
-                <li><f>Sur un total de 12 400 lignes</f><e>Out of 12,400 lines</e></li>
-              </ul>
+            <div class="pills">
+              <span class="pill">Nettoyage</span><span class="pill">Fusion</span><span class="pill">Refresh</span>
             </div>
-
-            <div class="metric">
-              <h4><f>Lignes traitées manuellement / mois</f><e>Manually processed lines / month</e></h4>
-              <div class="bar-row">
-                <span><f>Avant</f><e>Before</e></span>
-                <div class="track"><i style="--w:100"></i></div>
-                <b>12 400</b>
-              </div>
-              <div class="bar-row">
-                <span><f>Après</f><e>After</e></span>
-                <div class="track"><i class="after" style="--w:6"></i></div>
-                <b>744</b>
-              </div>
-            </div>
-
-            <div class="chips"><span>Python</span><span>SQL</span></div>
           </article>
 
-          <!-- CASE 3 -->
-          <article class="case">
-            <span class="k">03 / EXCEL</span>
-            <h3><f>Optimisation d'un fichier critique</f><e>Critical spreadsheet optimization</e></h3>
-
-            <p class="pb">
-              <b><f>Avant :</f><e>Before:</e></b>
-              <f>Fichier lourd, formules complexes et maintenance difficile.</f>
-              <e>Large file, complex formulas and difficult maintenance.</e>
+          <article class="card">
+            <div class="module-icon">BI</div>
+            <h3>Power BI</h3>
+            <p>
+              <f>Modéliser les données, créer des indicateurs et concevoir des tableaux de bord interactifs.</f>
+              <e>Model data, create metrics and build interactive dashboards.</e>
             </p>
-            <p class="pb">
-              <b><f>Après :</f><e>After:</e></b>
-              <f>Données restructurées, formules simplifiées et étapes documentées.</f>
-              <e>Restructured data, simpler formulas and documented steps.</e>
+            <div class="pills">
+              <span class="pill">DAX</span><span class="pill">Modèle</span><span class="pill">Dashboards</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="module-icon">AI</div>
+            <h3><f>IA pour la data</f><e>AI for data</e></h3>
+            <p>
+              <f>Utiliser l'IA pour accélérer la création de formules, comprendre du code et améliorer les méthodes de travail.</f>
+              <e>Use AI to speed up formula creation, understand code and improve your working methods.</e>
             </p>
-
-            <div class="metric">
-              <h4><f>Temps de calcul</f><e>Calculation time</e></h4>
-              <div class="bar-row">
-                <span><f>Avant</f><e>Before</e></span>
-                <div class="track"><i style="--w:100"></i></div>
-                <b>240 s</b>
-              </div>
-              <div class="bar-row">
-                <span><f>Après</f><e>After</e></span>
-                <div class="track"><i class="after" style="--w:5"></i></div>
-                <b>12 s</b>
-              </div>
+            <div class="pills">
+              <span class="pill">Prompts</span><span class="pill">Formules</span><span class="pill">Productivité</span>
             </div>
-
-            <div class="metric">
-              <h4><f>Taille du fichier</f><e>File size</e></h4>
-              <div class="bar-row">
-                <span><f>Avant</f><e>Before</e></span>
-                <div class="track"><i style="--w:100"></i></div>
-                <b>48 Mo</b>
-              </div>
-              <div class="bar-row">
-                <span><f>Après</f><e>After</e></span>
-                <div class="track"><i class="after" style="--w:12.5"></i></div>
-                <b>6 Mo</b>
-              </div>
-            </div>
-
-            <div class="chips"><span>Excel</span><span>VBA</span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- METHOD -->
+    <!-- EXEMPLES -->
+    <section id="exemples">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><f>Exemples concrets</f><e>Practical examples</e></div>
+          <h2>
+            <f>Du temps gagné. <span class="accent">Des résultats visibles.</span></f>
+            <e>Time saved. <span class="accent">Visible results.</span></e>
+          </h2>
+          <p class="lead">
+            <f>Des cas pratiques pour comprendre ce que les outils peuvent apporter à votre activité.</f>
+            <e>Practical examples to understand what these tools can bring to your work.</e>
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="case">
+            <div class="case-top">
+              <div>
+                <span class="case-label">01 · Power Query</span>
+                <h3><f>Consolider plusieurs fichiers en un seul processus</f><e>Consolidate multiple files into one process</e></h3>
+                <p><f>Automatiser l'import, le nettoyage et la consolidation de fichiers récurrents.</f><e>Automate the import, cleaning and consolidation of recurring files.</e></p>
+              </div>
+              <div class="metric"><strong>Auto</strong><span><f>Actualisation</f><e>Refresh</e></span></div>
+            </div>
+            <div class="chart">
+              <div class="tr"><span><f>Avant</f><e>Before</e></span><div class="track"><i style="--w:100"></i></div><b>100%</b></div>
+              <div class="tr"><span><f>Après</f><e>After</e></span><div class="track"><i style="--w:20"></i></div><b>20%</b></div>
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="case-top">
+              <div>
+                <span class="case-label">02 · Power BI</span>
+                <h3><f>Transformer des données en tableau de bord</f><e>Turn raw data into a dashboard</e></h3>
+                <p><f>Centraliser les indicateurs dans une interface claire, actualisable et interactive.</f><e>Bring key metrics together in a clear, refreshable and interactive interface.</e></p>
+              </div>
+              <div class="metric"><strong>1</strong><span><f>vue centralisée</f><e>centralized view</e></span></div>
+            </div>
+            <div class="chart">
+              <div class="tr"><span><f>Sources séparées</f><e>Separate sources</e></span><div class="track"><i style="--w:35"></i></div><b>35%</b></div>
+              <div class="tr"><span><f>Vue consolidée</f><e>Unified view</e></span><div class="track"><i style="--w:95"></i></div><b>95%</b></div>
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="case-top">
+              <div>
+                <span class="case-label">03 · Excel + IA</span>
+                <h3><f>Créer et comprendre des formules plus rapidement</f><e>Create and understand formulas faster</e></h3>
+                <p><f>Utiliser l'IA pour construire des formules et les adapter à ses données.</f><e>Use AI to build formulas and adapt them to your data.</e></p>
+              </div>
+              <div class="metric"><strong>IA</strong><span><f>Assistance</f><e>Assistance</e></span></div>
+            </div>
+            <div class="chart">
+              <div class="tr"><span><f>Recherche manuelle</f><e>Manual research</e></span><div class="track"><i style="--w:100"></i></div><b>100%</b></div>
+              <div class="tr"><span><f>Avec assistance IA</f><e>With AI assistance</e></span><div class="track"><i style="--w:45"></i></div><b>45%</b></div>
+            </div>
+          </article>
+        </div>
+        <p style="color:var(--muted);font-size:11px;margin-top:15px">
+          <f>Illustrations indicatives, les gains dépendent du contexte et du cas d'usage.</f>
+          <e>Illustrative examples; results depend on the context and use case.</e>
+        </p>
+      </div>
+    </section>
+
+    <!-- MÉTHODE -->
     <section id="methode">
       <div class="wrap">
-        <span class="eyebrow"><f>Approche</f><e>Approach</e></span>
-        <h2><f>Une méthode claire, du diagnostic à la transmission.</f><e>A clear process, from diagnosis to handover.</e></h2>
-        <p class="lead">
-          <f>Chaque intervention part de vos processus et contraintes réels. La solution est conçue pour être comprise, utilisée et maintenue par les équipes.</f>
-          <e>Every engagement starts with your actual processes and constraints. The solution is designed to be understood, used and maintained by your team.</e>
-        </p>
+        <div class="section-head">
+          <div class="eyebrow"><f>La méthode</f><e>The approach</e></div>
+          <h2>
+            <f>Apprendre en <span class="accent">pratiquant.</span></f>
+            <e>Learn by <span class="accent">doing.</span></e>
+          </h2>
+          <p class="lead">
+            <f>Une approche individualisée, axée sur la pratique et sur des résultats réutilisables après chaque séance.</f>
+            <e>An individualized, hands-on approach focused on results you can reuse after each session.</e>
+          </p>
+        </div>
 
         <div class="steps">
-          <div>
-            <h3><f>Comprendre</f><e>Understand</e></h3>
-            <p><f>Analyser les processus, les données, les irritants et les objectifs attendus.</f><e>Analyze processes, data, pain points and expected outcomes.</e></p>
+          <div class="step">
+            <div class="step-num">01</div>
+            <div>
+              <h3><f>Définir votre objectif</f><e>Define your goal</e></h3>
+              <p><f>Identifier votre niveau, vos besoins et les tâches que vous souhaitez améliorer.</f><e>Identify your level, your needs and the tasks you want to improve.</e></p>
+            </div>
           </div>
-          <div>
-            <h3><f>Construire</f><e>Build</e></h3>
-            <p><f>Développer une solution adaptée à vos outils, à vos contraintes et à vos usages.</f><e>Build a solution suited to your tools, constraints and workflows.</e></p>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div>
+              <h3><f>Travailler sur un cas concret</f><e>Work on a practical case</e></h3>
+              <p><f>Utiliser des exemples proches de votre environnement professionnel, idéalement vos propres fichiers.</f><e>Use examples from your professional environment, ideally working with your own files.</e></p>
+            </div>
           </div>
-          <div>
-            <h3><f>Automatiser</f><e>Automate</e></h3>
-            <p><f>Fiabiliser les traitements, structurer les contrôles et rendre les processus reproductibles.</f><e>Improve reliability, structure checks and make processes repeatable.</e></p>
-          </div>
-          <div>
-            <h3><f>Transmettre</f><e>Hand over</e></h3>
-            <p><f>Documenter la solution et faciliter sa prise en main et sa maintenance.</f><e>Document the solution and make it easier to use and maintain.</e></p>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div>
+              <h3><f>Repartir avec une solution applicable</f><e>Leave with a usable solution</e></h3>
+              <p><f>Construire une méthode ou un processus que vous pourrez réutiliser en autonomie.</f><e>Build a method or process you can reuse independently.</e></p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="about-section" id="apropos">
-      <div class="wrap about">
-        <span class="eyebrow"><f>À propos</f><e>About</e></span>
-        <h2><f>Une double approche Finance &amp; Data.</f><e>A dual Finance &amp; Data perspective.</e></h2>
-        <p>
-          <f>Ingénieur de formation et analyste financier, j'ai développé une expérience en analyse de données, automatisation, reporting et pilotage de la performance au sein d'un grand groupe.</f>
-          <e>With an engineering background and experience as a financial analyst, I have developed expertise in data analysis, automation, reporting and performance management within a large organization.</e>
-        </p>
-        <p>
-          <f>Achats, supply chain, ventes et finance : l'objectif reste le même. Transformer des données et des processus complexes en outils simples, fiables et exploitables.</f>
-          <e>Procurement, supply chain, sales and finance: the objective remains the same. Turn complex data and processes into simple, reliable and actionable tools.</e>
-        </p>
+    <!-- TARIF -->
+    <section id="tarif">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><f>Format et tarif</f><e>Format and pricing</e></div>
+          <h2>
+            <f>Un accompagnement <span class="accent">sur mesure.</span></f>
+            <e>Tailored <span class="accent">one-to-one training.</span></e>
+          </h2>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="offer">
+            <span class="case-label"><f>Cours individuel</f><e>One-to-one lesson</e></span>
+            <h3><f>Une séance adaptée à vos besoins</f><e>A session tailored to your needs</e></h3>
+            <div class="offer-price">50 € <small>/ <f>heure</f><e>hour</e></small></div>
+            <p style="color:var(--muted);font-size:13px">
+              <f>Un format flexible pour progresser sur un sujet précis ou construire une compétence durable.</f>
+              <e>A flexible format to improve a specific skill or build lasting expertise.</e>
+            </p>
+            <ul>
+              <li><f>Contenu adapté à votre niveau</f><e>Content tailored to your level</e></li>
+              <li><f>Exercices et cas pratiques</f><e>Exercises and practical cases</e></li>
+              <li><f>Travail sur vos propres problématiques</f><e>Work on your own challenges</e></li>
+              <li><f>Des méthodes réutilisables en autonomie</f><e>Methods you can reuse independently</e></li>
+            </ul>
+            <a class="btn btn-primary"
+               href="https://calendar.google.com/calendar/u/0/appointments/schedules/"
+               target="_blank" rel="noopener noreferrer">
+              <f>Réserver un créneau ↗</f><e>Book a time slot ↗</e>
+            </a>
+          </div>
+
+          <div class="card">
+            <div class="eyebrow"><f>Pour qui ?</f><e>Who is it for?</e></div>
+            <h3><f>Des cours adaptés à votre quotidien professionnel.</f><e>Training adapted to your professional day-to-day work.</e></h3>
+            <p><f>Que vous débutiez ou souhaitiez aller plus loin, les séances sont construites autour de vos besoins réels.</f><e>Whether you're a beginner or looking to advance your skills, sessions are built around your real needs.</e></p>
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">A</div>
+                <div>
+                  <h3><f>Débutants</f><e>Beginners</e></h3>
+                  <p><f>Acquérir des bases solides et gagner en confiance.</f><e>Build solid foundations and gain confidence.</e></p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">B</div>
+                <div>
+                  <h3><f>Utilisateurs réguliers</f><e>Regular users</e></h3>
+                  <p><f>Améliorer ses méthodes et automatiser ses tâches.</f><e>Improve workflows and automate tasks.</e></p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">C</div>
+                <div>
+                  <h3><f>Professionnels de la data</f><e>Data professionals</e></h3>
+                  <p><f>Approfondir les outils et résoudre des cas complexes.</f><e>Explore tools in depth and solve complex cases.</e></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="cta" id="contact">
+    <!-- TÉMOIGNAGES -->
+    <section id="temoignages">
       <div class="wrap">
-        <div class="cta-box">
-          <span class="eyebrow"><f>Entreprise</f><e>Business</e></span>
-          <h2><f>Parlons de votre projet.</f><e>Let's discuss your project.</e></h2>
+        <div class="section-head">
+          <div class="eyebrow"><f>Témoignages</f><e>Testimonials</e></div>
+          <h2>
+            <f>Apprendre avec un objectif <span class="accent">concret.</span></f>
+            <e>Learn with a <span class="accent">clear goal.</span></e>
+          </h2>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card quote">
+            <div class="quote-mark">“</div>
+            <blockquote>
+              <f>Les explications sont claires et directement applicables. J'ai pu améliorer mon utilisation d'Excel et gagner du temps sur mes tâches quotidiennes.</f>
+              <e>The explanations are clear and immediately useful. I improved my Excel skills and saved time on everyday tasks.</e>
+            </blockquote>
+            <div class="quote-author">
+              <strong><f>Formation Excel</f><e>Excel training</e></strong>
+              <span><f>Cours individuel</f><e>One-to-one lesson</e></span>
+            </div>
+          </article>
+
+          <article class="card quote">
+            <div class="quote-mark">“</div>
+            <blockquote>
+              <f>Une approche pratique. Nous avons travaillé sur des exemples proches de mon activité, ce qui m'a permis de comprendre comment appliquer les méthodes.</f>
+              <e>A practical approach. We worked on examples close to my day-to-day work, making it easier to apply the methods.</e>
+            </blockquote>
+            <div class="quote-author">
+              <strong>Power Query</strong>
+              <span><f>Automatisation</f><e>Automation</e></span>
+            </div>
+          </article>
+
+          <article class="card quote">
+            <div class="quote-mark">“</div>
+            <blockquote>
+              <f>J'ai pu structurer mes données et mieux comprendre la construction d'un tableau de bord. Le contenu était adapté à mon niveau.</f>
+              <e>I was able to structure my data and better understand how to build a dashboard. The content was adapted to my level.</e>
+            </blockquote>
+            <div class="quote-author">
+              <strong>Power BI</strong>
+              <span><f>Visualisation des données</f><e>Data visualization</e></span>
+            </div>
+          </article>
+        </div>
+  
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><f>À propos</f><e>About</e></div>
+          <h2>
+            <f>Une double approche <span class="accent">Finance & Data.</span></f>
+            <e>A dual perspective on <span class="accent">Finance & Data.</span></e>
+          </h2>
+        </div>
+
+        <div class="about-box">
+          <div class="about-photo">
+            <img src="pp.jpeg" alt="Photo de profil d'Alexandre"
+                 loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
+   
+          </div>
+
+          <div class="about-copy">
+            <p>
+              <f>
+                Ingénieur de formation et analyste financier, j'ai développé une
+                expérience en analyse de données, automatisation, reporting et
+                pilotage de la performance au sein d'un grand groupe.
+              </f>
+              <e>
+                Trained as an engineer and working as a financial analyst, I
+                have developed experience in data analysis, automation,
+                reporting and performance management within a large organization.
+              </e>
+            </p>
+
+            <p>
+              <f>
+                Achats, supply chain, ventes et finance : l'objectif reste le
+                même. Transformer des données et des processus complexes en
+                outils simples, fiables et exploitables.
+              </f>
+              <e>
+                Procurement, supply chain, sales and finance share the same
+                goal: turning complex data and processes into simple, reliable
+                and actionable tools.
+              </e>
+            </p>
+
+            <p>
+              <f>
+                Cette double compétence me permet d'aborder les outils sous
+                l'angle technique comme sous l'angle métier, avec une attention
+                particulière portée à la fiabilité des indicateurs et à leur
+                utilisation dans la prise de décision.
+              </f>
+              <e>
+                This dual skill set lets me approach tools from both technical
+                and business perspectives, with a focus on KPI reliability and
+                their use in decision-making.
+              </e>
+            </p>
+
+            <a class="btn btn-secondary"
+               href="https://www.linkedin.com/in/alexandre-grondin-2774b81b7/"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+
+            <div class="about-details">
+              <div class="detail-row">
+                <span><f>Domaines</f><e>Areas</e></span>
+                <strong>Excel · Power Query · Power BI · IA</strong>
+              </div>
+              <div class="detail-row">
+                <span><f>Approche</f><e>Approach</e></span>
+                <strong><f>Finance et analyse de données</f><e>Finance and data analysis</e></strong>
+              </div>
+              <div class="detail-row">
+                <span><f>Format</f><e>Format</e></span>
+                <strong><f>Cours individuels</f><e>One-to-one lessons</e></strong>
+              </div>
+              <div class="detail-row">
+                <span><f>Tarif</f><e>Rate</e></span>
+                <strong>50 € / <f>heure</f><e>hour</e></strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉSERVATION -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div class="eyebrow"><f>Passons à la pratique</f><e>Let's get practical</e></div>
+          <h2>
+            <f>Quel sujet souhaitez-vous <span class="accent">maîtriser ?</span></f>
+            <e>What would you like to <span class="accent">master?</span></e>
+          </h2>
           <p>
-            <f>Reporting, dashboard, automatisation Excel ou contrôle budgétaire : décrivez votre besoin et les processus que vous souhaitez améliorer.</f>
-            <e>Reporting, dashboards, Excel automation or budget control: describe your needs and the processes you want to improve.</e>
+            <f>
+              Réservez un créneau pour échanger sur votre objectif et identifier
+              le format de cours le plus adapté.
+            </f>
+            <e>
+              Book a time slot to discuss your goals and identify the most
+              suitable training format.
+            </e>
           </p>
           <div class="actions">
-            <a class="btn blue"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSeSsQMca5RdeBGASXv7hwjfZBe41H4naR_akpruyRslG4_V4g/viewform"
+            <a class="btn btn-primary"
+               href="https://calendar.google.com/calendar/u/0/appointments/schedules/"
                target="_blank" rel="noopener noreferrer">
-              <f>Décrire mon projet ↗</f>
-              <e>Describe my project ↗</e>
+              <f>Réserver un créneau ↗</f>
+              <e>Book a time slot ↗</e>
+            </a>
+            <a class="btn btn-secondary"
+               href="https://www.linkedin.com/in/alexandre-grondin-2774b81b7/"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
             </a>
           </div>
         </div>
@@ -1289,86 +1257,55 @@
     </section>
   </main>
 
-  <footer class="site">
-    <div class="wrap">
-      © 2026 Cilerium · Finance &amp; Data ·
-      <a href="https://www.linkedin.com/in/alexandre-grondin-2774b81b7/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© <span id="year"></span> Cilerium</p>
+      <a href="https://www.linkedin.com/in/alexandre-grondin-2774b81b7/"
+         target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
     </div>
   </footer>
 
   <script>
-    (function () {
-      "use strict";
+    document.documentElement.classList.add("js");
 
-      var root = document.documentElement;
-      root.classList.add("js");
+    const langButtons = document.querySelectorAll("[data-lang]");
 
-      var titles = {
-        fr: "Cilerium | Automatisation Finance & Data",
-        en: "Cilerium | Finance & Data Automation"
-      };
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
 
-      function setLang(lang) {
-        if (lang !== "fr" && lang !== "en") {
-          lang = "fr";
-        }
-
-        root.lang = lang;
-        document.title = titles[lang];
-
-        document.querySelectorAll(".lang button").forEach(function (button) {
-          button.setAttribute(
-            "aria-pressed",
-            button.dataset.l === lang ? "true" : "false"
-          );
-        });
-
-        try {
-          localStorage.setItem("cilerium-lang", lang);
-        } catch (error) {
-          // Le site reste fonctionnel sans stockage local.
-        }
-      }
-
-      var savedLang = null;
-
-      try {
-        savedLang = localStorage.getItem("cilerium-lang");
-      } catch (error) {
-        // Le stockage local peut être indisponible.
-      }
-
-      var browserLang = (navigator.language || "fr").slice(0, 2);
-      setLang(savedLang || (browserLang === "en" ? "en" : "fr"));
-
-      document.querySelectorAll(".lang button").forEach(function (button) {
-        button.addEventListener("click", function () {
-          setLang(button.dataset.l);
-        });
+      langButtons.forEach((button) => {
+        const selected = button.dataset.lang === lang;
+        button.classList.toggle("active", selected);
+        button.setAttribute("aria-pressed", String(selected));
       });
 
-      // Anime les graphiques à l'entrée dans la zone visible.
-      var cases = document.querySelectorAll(".case");
+      document.title = lang === "fr"
+        ? "Cilerium — Finance & Data"
+        : "Cilerium — Finance & Data";
 
-      if ("IntersectionObserver" in window) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in");
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12 });
-
-        cases.forEach(function (card) {
-          observer.observe(card);
-        });
-      } else {
-        cases.forEach(function (card) {
-          card.classList.add("in");
-        });
+      try {
+        localStorage.setItem("cilerium-language", lang);
+      } catch (error) {
+        // Le site reste utilisable sans stockage local.
       }
-    })();
+    }
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.lang);
+      });
+    });
+
+    try {
+      const savedLanguage = localStorage.getItem("cilerium-language");
+      if (savedLanguage === "fr" || savedLanguage === "en") {
+        setLanguage(savedLanguage);
+      }
+    } catch (error) {
+      // Le français est la langue par défaut.
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
