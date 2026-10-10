@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cilerium | Automatisation Finance & Data</title>
+  <meta name="description" content="Cilerium accompagne les entreprises en automatisation Finance & Data : reporting, dashboards, rapprochements comptables, contrôle de gestion et optimisation Excel.">
+  <meta name="theme-color" content="#0c1422">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0c1422;
+      --surface: #111d2e;
+      --surface-2: #172438;
+      --surface-3: #1d2c42;
+      --line: #2b3a50;
+      --ink: #edf2f8;
+      --muted: #a1aec0;
+      --subtle: #77879d;
+      --accent: #82a9e8;
+      --accent-hover: #a1c0f1;
+      --accent-soft: #1d304b;
+      --success: #69c5a5;
+      --success-soft: #19382f;
+      --radius: 10px;
+      --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.75 var(--font);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[lang="en"] f,
+    html[lang="fr"] e {
+      display: none;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #0c1422;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -.035em;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    section {
+      padding: 84px 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      font-size: 1.04rem;
+      line-height: 1.85;
+      margin-bottom: 36px;
+    }
+
+    .grad {
+      color: var(--accent);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    /* Navigation */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(12, 20, 34, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    nav .wrap {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-size: 1.12rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .logo-mark {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #5275a3;
+      border-radius: 5px;
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: -.06em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .18s;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+    }
+
+    .lang button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 9px;
+      border: 0;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .18s, color .18s;
+    }
+
+    .lang button:hover {
+      color: var(--ink);
+    }
+
+    html[lang="fr"] .lang button[data-l="fr"],
+    html[lang="en"] .lang button[data-l="en"] {
+      background: var(--surface-3);
+      color: var(--ink);
+    }
+
+    /* Buttons */
+
+    .btn {
+      min-height: 48px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--ink);
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .18s, border-color .18s, transform .18s;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: #526681;
+      background: var(--surface-3);
+    }
+
+    .btn.blue {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #0c1422;
+    }
+
+    .btn.blue:hover {
+      background: var(--accent-hover);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 92px 0 72px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 78% 8%, rgba(91, 129, 185, .12), transparent 42%),
+        var(--bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      align-items: center;
+      gap: 72px;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .hero-copy {
+      max-width: 690px;
+      font-size: 1.05rem;
+    }
+
+    .hero .actions {
+      margin-top: 30px;
+    }
+
+    .profile {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .profile-photo {
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: var(--surface-3);
+      color: var(--accent);
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    .profile-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile h3 {
+      margin: 16px 4px 2px;
+    }
+
+    .profile p {
+      margin: 0 4px 8px;
+      font-size: .86rem;
+    }
+
+    .profile > a {
+      display: inline-block;
+      margin: 0 4px 7px;
+      color: var(--accent);
+      font-size: .83rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .profile > a:hover {
+      text-decoration: underline;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 58px;
+    }
+
+    .hero-stat {
+      padding: 19px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(17, 29, 46, .65);
+    }
+
+    .hero-stat strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-stat span {
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    /* Shared sections */
+
+    .section-head {
+      max-width: 800px;
+      margin-bottom: 32px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .g3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: .89rem;
+    }
+
+    .card-index {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--accent);
+      font: 600 .8rem var(--mono);
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .pills span {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 500;
+    }
+
+    .sub {
+      margin: 58px 0 10px;
+      font-size: 1.45rem;
+    }
+
+    .note {
+      margin-bottom: 22px;
+      font-size: .86rem;
+    }
+
+    /* Case studies */
+
+    .cases {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .case {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .case .k {
+      align-self: flex-start;
+      margin-bottom: 17px;
+      color: var(--accent);
+      font-size: .69rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+
+    .case h3 {
+      margin-bottom: 15px;
+      font-size: 1.08rem;
+    }
+
+    .pb {
+      margin-bottom: 9px;
+      font-size: .84rem;
+      line-height: 1.7;
+    }
+
+    .pb b {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .metric {
+      margin-top: 20px;
+    }
+
+    .metric h4 {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: .73rem;
+      font-weight: 600;
+      letter-spacing: .025em;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) 58px;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: .73rem;
+    }
+
+    .bar-row > span {
+      color: var(--muted);
+    }
+
+    .bar-row b {
+      color: var(--ink);
+      text-align: right;
+      font-size: .76rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 2px;
+      background: var(--surface-3);
+    }
+
+    .track i {
+      display: block;
+      width: calc(var(--w) * 1%);
+      height: 100%;
+      min-width: 0;
+      border-radius: 2px;
+      background: #52637a;
+      transition: width 1s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .track i.after {
+      background: var(--accent);
+    }
+
+    .js .track i {
+      width: 0;
+    }
+
+    .js .case.in .track i {
+      width: calc(var(--w) * 1%);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    .chips span {
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      color: var(--muted);
+      font-size: .69rem;
+    }
+
+    /* Donut chart */
+
+    .donut {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 20px 0 6px;
+    }
+
+    .donut-wrap {
+      position: relative;
+      flex: 0 0 88px;
+      width: 88px;
+      height: 88px;
+    }
+
+    .donut-wrap svg {
+      width: 88px;
+      height: 88px;
+      transform: rotate(-90deg);
+    }
+
+    .donut-wrap circle {
+      fill: none;
+      stroke-width: 9;
+    }
+
+    .donut-wrap .donut-bg {
+      stroke: var(--surface-3);
+    }
+
+    .donut-wrap .donut-fg {
+      stroke: var(--success);
+      stroke-linecap: butt;
+      stroke-dasharray: 236 251.33;
+      transition: stroke-dasharray 1s ease;
+    }
+
+    .js .donut-wrap .donut-fg {
+      stroke-dasharray: 0 251.33;
+    }
+
+    .js .case.in .donut-wrap .donut-fg {
+      stroke-dasharray: 236 251.33;
+    }
+
+    .donut-percent {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .donut ul {
+      list-style: none;
+      color: var(--muted);
+      font-size: .79rem;
+    }
+
+    .donut li + li {
+      margin-top: 5px;
+    }
+
+    .donut b {
+      color: var(--ink);
+    }
+
+    /* Formula comparison */
+
+    .lbl {
+      margin: 13px 0 5px;
+      color: var(--muted);
+      font-size: .69rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    pre {
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font: .72rem/1.65 var(--mono);
+    }
+
+    pre.before {
+      background: #141e2d;
+      color: #a9b4c4;
+    }
+
+    pre.after {
+      background: var(--accent-soft);
+      color: var(--ink);
+    }
+
+    /* Methodology */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .steps > div {
+      counter-increment: step;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .steps > div::before {
+      content: "0" counter(step);
+      display: block;
+      margin-bottom: 23px;
+      color: var(--accent);
+      font: 600 1rem var(--mono);
+    }
+
+    .steps h3 {
+      margin-bottom: 8px;
+    }
+
+    .steps p {
+      font-size: .85rem;
+    }
+
+    /* About */
+
+    .about-section {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #0f1928;
+    }
+
+    .about {
+      max-width: 800px;
+    }
+
+    .about p + p {
+      margin-top: 14px;
+    }
+
+    /* Contact */
+
+    .cta {
+      text-align: center;
+    }
+
+    .cta .lead {
+      margin-inline: auto;
+    }
+
+    .cta-box {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 46px 34px;
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--accent);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .cta-box p {
+      max-width: 540px;
+      margin: 0 auto 25px;
+      font-size: .93rem;
+    }
+
+    .cta-box .actions {
+      justify-content: center;
+    }
+
+    footer.site {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
+      text-align: center;
+      font-size: .79rem;
+    }
+
+    footer.site a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer.site a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 960px) {
+      section {
+        padding: 64px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 34px;
+      }
+
+      .g3, .cases {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .wrap {
+        width: min(100% - 32px, 1120px);
+      }
+
+      nav .wrap {
+        min-height: 64px;
+        gap: 8px;
+      }
+
+      .logo {
+        gap: 7px;
+        font-size: 1rem;
+      }
+
+      .logo-mark {
+        width: 26px;
+        height: 26px;
+      }
+
+      .nav-right {
+        gap: 8px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .lang {
+        gap: 0;
+      }
+
+      .lang button {
+        padding: 7px;
+        font-size: .72rem;
+      }
+
+      .hero {
+        padding: 54px 0 58px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.35rem, 10vw, 3.5rem);
+      }
+
+      .profile {
+        max-width: 240px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        margin-top: 36px;
+      }
+
+      .hero-stat {
+        padding: 15px 17px;
+      }
+
+      .g3, .cases, .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .card, .case {
+        padding: 22px;
+      }
+
+      .cta-box {
+        padding: 32px 20px;
+      }
+
+      .actions .btn {
+        width: 100%;
+      }
+
+      .sub {
+        margin-top: 42px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo span:last-child {
+        display: none;
+      }
+
+      .bar-row {
+        grid-template-columns: 42px minmax(0, 1fr) 53px;
+        gap: 6px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav aria-label="Navigation principale">
+    <div class="wrap">
+      <a href="#top" class="logo" aria-label="Cilerium - Entreprise">
+        <span class="logo-mark">C.</span>
+        <span>CILERIUM</span>
+      </a>
+
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#expertise"><f>Expertises</f><e>Expertise</e></a>
+          <a href="#cas-usage"><f>Cas d'usage</f><e>Use cases</e></a>
+          <a href="#methode"><f>Méthode</f><e>Method</e></a>
+          <a href="#contact"><f>Contact</f><e>Contact</e></a>
+        </div>
+
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-l="fr" aria-label="Français" aria-pressed="true">FR</button>
+          <button type="button" data-l="en" aria-label="English" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Finance &amp; Data</span>
+
+            <h1>
+              <f>Moins de tâches manuelles.<br>Plus de <span class="grad">maîtrise.</span></f>
+              <e>Less manual work.<br>More <span class="grad">control.</span></e>
+            </h1>
+
+            <p class="hero-copy">
+              <f>J'aide les directions financières, contrôleurs de gestion et équipes comptables à automatiser leurs reportings, fiabiliser leurs données et construire des outils de pilotage adaptés à leurs enjeux.</f>
+              <e>I help finance departments, controllers and accounting teams automate reporting, improve data reliability and build management tools tailored to their needs.</e>
+            </p>
+
+            <div class="actions">
+              <a class="btn blue" href="#cas-usage">
+                <f>Voir les cas d'usage ↓</f>
+                <e>Explore the use cases ↓</e>
+              </a>
+              <a class="btn" href="#contact">
+                <f>Parler de mon projet →</f>
+                <e>Discuss my project →</e>
+              </a>
+            </div>
+          </div>
+
+          <aside class="profile">
+            <div class="profile-photo">
+              A
+              <img src="pp.jpeg" alt="Alexandre" onerror="this.style.display='none'">
+            </div>
+            <h3>Alexandre</h3>
+            <p>
+              <f>Analyste financier &amp; Data</f>
+              <e>Financial &amp; Data Analyst</e>
+            </p>
+            <a href="https://www.linkedin.com/in/alexandre-grondin-2774b81b7/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </aside>
+        </div>
+
+        <div class="hero-stats" aria-label="Domaines d'intervention">
+          <div class="hero-stat">
+            <strong><f>Automatiser</f><e>Automate</e></strong>
+            <span><f>Réduire les tâches répétitives et le temps de production.</f><e>Reduce repetitive tasks and production time.</e></span>
+          </div>
+          <div class="hero-stat">
+            <strong><f>Fiabiliser</f><e>Improve reliability</e></strong>
+            <span><f>Structurer les données et renforcer les contrôles.</f><e>Structure data and strengthen controls.</e></span>
+          </div>
+          <div class="hero-stat">
+            <strong><f>Piloter</f><e>Manage</e></strong>
+            <span><f>Transformer les chiffres en indicateurs exploitables.</f><e>Turn figures into actionable indicators.</e></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- EXPERTISE -->
+    <section id="expertise">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="tag"><f>Entreprise · Conseil &amp; Automatisation</f><e>Business · Consulting &amp; Automation</e></span>
+          <h2><f>Des outils conçus autour de vos processus.</f><e>Tools designed around your processes.</e></h2>
+          <p class="lead">
+            <f>L'objectif n'est pas d'ajouter un outil de plus, mais de simplifier le travail existant : moins de manipulations, des contrôles plus lisibles et une information disponible au bon moment.</f>
+            <e>The goal is not to add another tool, but to simplify existing work: fewer manual steps, clearer controls and information available when it is needed.</e>
+          </p>
+        </div>
+
+        <div class="grid g3">
+          <article class="card">
+            <span class="card-index">01 / PRODUCTIVITÉ</span>
+            <h3><f>Automatiser</f><e>Automate</e></h3>
+            <p>
+              <f>Automatiser les tâches répétitives, les consolidations et la production de reportings pour réduire le temps passé sur les opérations manuelles.</f>
+              <e>Automate repetitive tasks, consolidations and reporting to reduce time spent on manual operations.</e>
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-index">02 / FIABILITÉ</span>
+            <h3><f>Fiabiliser</f><e>Improve reliability</e></h3>
+            <p>
+              <f>Structurer, consolider et contrôler les données pour identifier plus facilement les anomalies et limiter les erreurs de traitement.</f>
+              <e>Structure, consolidate and validate data to identify anomalies more easily and reduce processing errors.</e>
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-index">03 / PILOTAGE</span>
+            <h3><f>Décider</f><e>Make decisions</e></h3>
+            <p>
+              <f>Transformer les données financières en indicateurs, tableaux de bord et analyses utiles à la prise de décision.</f>
+              <e>Turn financial data into indicators, dashboards and analyses that support decision-making.</e>
+            </p>
+          </article>
+        </div>
+
+        <div class="pills" aria-label="Prestations">
+          <span><f>Reporting financier</f><e>Financial reporting</e></span>
+          <span>Dashboards</span>
+          <span><f>Contrôle de gestion</f><e>Management control</e></span>
+          <span>Budget &amp; Forecast</span>
+          <span><f>Analyse financière</f><e>Financial analysis</e></span>
+          <span><f>Outils comptables</f><e>Accounting tools</e></span>
+          <span><f>Simulation &amp; scénarios</f><e>Simulation &amp; scenarios</e></span>
+          <span><f>Optimisation Excel</f><e>Excel optimization</e></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section id="cas-usage" style="background:#0f1928;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow"><f>Illustrations</f><e>Examples</e></span>
+          <h2><f>Des processus manuels à des flux maîtrisés.</f><e>From manual processes to controlled workflows.</e></h2>
+          <p class="note">
+            <f>Illustrations de projets types. Les chiffres ci-dessous sont indicatifs et ne constituent pas des résultats clients garantis.</f>
+            <e>Illustrative project examples. Figures below are indicative and are not guaranteed client results.</e>
+          </p>
+        </div>
+
+        <div class="cases">
+          <!-- CASE 1 -->
+          <article class="case">
+            <span class="k">01 / REPORTING</span>
+            <h3><f>Reporting mensuel automatisé</f><e>Automated monthly reporting</e></h3>
+
+            <p class="pb">
+              <b><f>Avant :</f><e>Before:</e></b>
+              <f>6 fichiers Excel consolidés manuellement à chaque clôture.</f>
+              <e>6 Excel files manually consolidated at every close.</e>
+            </p>
+            <p class="pb">
+              <b><f>Après :</f><e>After:</e></b>
+              <f>Collecte, consolidation, contrôles et génération automatisés.</f>
+              <e>Automated collection, consolidation, checks and report generation.</e>
+            </p>
+
+            <div class="metric">
+              <h4><f>Temps de production</f><e>Production time</e></h4>
+              <div class="bar-row">
+                <span><f>Avant</f><e>Before</e></span>
+                <div class="track"><i style="--w:100"></i></div>
+                <b>18 h</b>
+              </div>
+              <div class="bar-row">
+                <span><f>Après</f><e>After</e></span>
+                <div class="track"><i class="after" style="--w:2.8"></i></div>
+                <b>30 min</b>
+              </div>
+            </div>
+
+            <div class="metric">
+              <h4><f>Erreurs par clôture</f><e>Errors per close</e></h4>
+              <div class="bar-row">
+                <span><f>Avant</f><e>Before</e></span>
+                <div class="track"><i style="--w:100"></i></div>
+                <b>7</b>
+              </div>
+              <div class="bar-row">
+                <span><f>Après</f><e>After</e></span>
+                <div class="track"><i class="after" style="--w:0"></i></div>
+                <b>0</b>
+              </div>
+            </div>
+
+            <div class="chips"><span>Python</span><span>Excel</span></div>
+          </article>
+
+          <!-- CASE 2 -->
+          <article class="case">
+            <span class="k"><f>02 / COMPTABILITÉ</f><e>02 / ACCOUNTING</e></span>
+            <h3><f>Rapprochements automatiques</f><e>Automated reconciliation</e></h3>
+
+            <p class="pb">
+              <b><f>Avant :</f><e>Before:</e></b>
+              <f>Contrôles ligne par ligne et traitement manuel des écarts.</f>
+              <e>Line-by-line checks and manual discrepancy handling.</e>
+            </p>
+            <p class="pb">
+              <b><f>Après :</f><e>After:</e></b>
+              <f>Rapprochement automatique et liste d'anomalies à analyser.</f>
+              <e>Automated matching and a list of exceptions to review.</e>
+            </p>
+
+            <div class="donut">
+              <div class="donut-wrap" role="img" aria-label="94 % des lignes rapprochées automatiquement">
+                <svg viewBox="0 0 96 96" aria-hidden="true">
+                  <circle class="donut-bg" cx="48" cy="48" r="40"></circle>
+                  <circle class="donut-fg" cx="48" cy="48" r="40"></circle>
+                </svg>
+                <span class="donut-percent">94%</span>
+              </div>
+              <ul>
+                <li><b>11 656</b> <f>rapprochées automatiquement</f><e>auto-matched</e></li>
+                <li><b>744</b> <f>à justifier</f><e>to review</e></li>
+                <li><f>Sur un total de 12 400 lignes</f><e>Out of 12,400 lines</e></li>
+              </ul>
+            </div>
+
+            <div class="metric">
+              <h4><f>Lignes traitées manuellement / mois</f><e>Manually processed lines / month</e></h4>
+              <div class="bar-row">
+                <span><f>Avant</f><e>Before</e></span>
+                <div class="track"><i style="--w:100"></i></div>
+                <b>12 400</b>
+              </div>
+              <div class="bar-row">
+                <span><f>Après</f><e>After</e></span>
+                <div class="track"><i class="after" style="--w:6"></i></div>
+                <b>744</b>
+              </div>
+            </div>
+
+            <div class="chips"><span>Python</span><span>SQL</span></div>
+          </article>
+
+          <!-- CASE 3 -->
+          <article class="case">
+            <span class="k">03 / EXCEL</span>
+            <h3><f>Optimisation d'un fichier critique</f><e>Critical spreadsheet optimization</e></h3>
+
+            <p class="pb">
+              <b><f>Avant :</f><e>Before:</e></b>
+              <f>Fichier lourd, formules complexes et maintenance difficile.</f>
+              <e>Large file, complex formulas and difficult maintenance.</e>
+            </p>
+            <p class="pb">
+              <b><f>Après :</f><e>After:</e></b>
+              <f>Données restructurées, formules simplifiées et étapes documentées.</f>
+              <e>Restructured data, simpler formulas and documented steps.</e>
+            </p>
+
+            <div class="metric">
+              <h4><f>Temps de calcul</f><e>Calculation time</e></h4>
+              <div class="bar-row">
+                <span><f>Avant</f><e>Before</e></span>
+                <div class="track"><i style="--w:100"></i></div>
+                <b>240 s</b>
+              </div>
+              <div class="bar-row">
+                <span><f>Après</f><e>After</e></span>
+                <div class="track"><i class="after" style="--w:5"></i></div>
+                <b>12 s</b>
+              </div>
+            </div>
+
+            <div class="metric">
+              <h4><f>Taille du fichier</f><e>File size</e></h4>
+              <div class="bar-row">
+                <span><f>Avant</f><e>Before</e></span>
+                <div class="track"><i style="--w:100"></i></div>
+                <b>48 Mo</b>
+              </div>
+              <div class="bar-row">
+                <span><f>Après</f><e>After</e></span>
+                <div class="track"><i class="after" style="--w:12.5"></i></div>
+                <b>6 Mo</b>
+              </div>
+            </div>
+
+            <div class="chips"><span>Excel</span><span>VBA</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD -->
+    <section id="methode">
+      <div class="wrap">
+        <span class="eyebrow"><f>Approche</f><e>Approach</e></span>
+        <h2><f>Une méthode claire, du diagnostic à la transmission.</f><e>A clear process, from diagnosis to handover.</e></h2>
+        <p class="lead">
+          <f>Chaque intervention part de vos processus et contraintes réels. La solution est conçue pour être comprise, utilisée et maintenue par les équipes.</f>
+          <e>Every engagement starts with your actual processes and constraints. The solution is designed to be understood, used and maintained by your team.</e>
+        </p>
+
+        <div class="steps">
+          <div>
+            <h3><f>Comprendre</f><e>Understand</e></h3>
+            <p><f>Analyser les processus, les données, les irritants et les objectifs attendus.</f><e>Analyze processes, data, pain points and expected outcomes.</e></p>
+          </div>
+          <div>
+            <h3><f>Construire</f><e>Build</e></h3>
+            <p><f>Développer une solution adaptée à vos outils, à vos contraintes et à vos usages.</f><e>Build a solution suited to your tools, constraints and workflows.</e></p>
+          </div>
+          <div>
+            <h3><f>Automatiser</f><e>Automate</e></h3>
+            <p><f>Fiabiliser les traitements, structurer les contrôles et rendre les processus reproductibles.</f><e>Improve reliability, structure checks and make processes repeatable.</e></p>
+          </div>
+          <div>
+            <h3><f>Transmettre</f><e>Hand over</e></h3>
+            <p><f>Documenter la solution et faciliter sa prise en main et sa maintenance.</f><e>Document the solution and make it easier to use and maintain.</e></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="apropos">
+      <div class="wrap about">
+        <span class="eyebrow"><f>À propos</f><e>About</e></span>
+        <h2><f>Une double approche Finance &amp; Data.</f><e>A dual Finance &amp; Data perspective.</e></h2>
+        <p>
+          <f>Ingénieur de formation et analyste financier, j'ai développé une expérience en analyse de données, automatisation, reporting et pilotage de la performance au sein d'un grand groupe.</f>
+          <e>With an engineering background and experience as a financial analyst, I have developed expertise in data analysis, automation, reporting and performance management within a large organization.</e>
+        </p>
+        <p>
+          <f>Achats, supply chain, ventes et finance : l'objectif reste le même. Transformer des données et des processus complexes en outils simples, fiables et exploitables.</f>
+          <e>Procurement, supply chain, sales and finance: the objective remains the same. Turn complex data and processes into simple, reliable and actionable tools.</e>
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="cta" id="contact">
+      <div class="wrap">
+        <div class="cta-box">
+          <span class="eyebrow"><f>Entreprise</f><e>Business</e></span>
+          <h2><f>Parlons de votre projet.</f><e>Let's discuss your project.</e></h2>
+          <p>
+            <f>Reporting, dashboard, automatisation Excel ou contrôle budgétaire : décrivez votre besoin et les processus que vous souhaitez améliorer.</f>
+            <e>Reporting, dashboards, Excel automation or budget control: describe your needs and the processes you want to improve.</e>
+          </p>
+          <div class="actions">
+            <a class="btn blue"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSeSsQMca5RdeBGASXv7hwjfZBe41H4naR_akpruyRslG4_V4g/viewform"
+               target="_blank" rel="noopener noreferrer">
+              <f>Décrire mon projet ↗</f>
+              <e>Describe my project ↗</e>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      © 2026 Cilerium · Finance &amp; Data ·
+      <a href="https://www.linkedin.com/in/alexandre-grondin-2774b81b7/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var root = document.documentElement;
+      root.classList.add("js");
+
+      var titles = {
+        fr: "Cilerium | Automatisation Finance & Data",
+        en: "Cilerium | Finance & Data Automation"
+      };
+
+      function setLang(lang) {
+        if (lang !== "fr" && lang !== "en") {
+          lang = "fr";
+        }
+
+        root.lang = lang;
+        document.title = titles[lang];
+
+        document.querySelectorAll(".lang button").forEach(function (button) {
+          button.setAttribute(
+            "aria-pressed",
+            button.dataset.l === lang ? "true" : "false"
+          );
+        });
+
+        try {
+          localStorage.setItem("cilerium-lang", lang);
+        } catch (error) {
+          // Le site reste fonctionnel sans stockage local.
+        }
+      }
+
+      var savedLang = null;
+
+      try {
+        savedLang = localStorage.getItem("cilerium-lang");
+      } catch (error) {
+        // Le stockage local peut être indisponible.
+      }
+
+      var browserLang = (navigator.language || "fr").slice(0, 2);
+      setLang(savedLang || (browserLang === "en" ? "en" : "fr"));
+
+      document.querySelectorAll(".lang button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          setLang(button.dataset.l);
+        });
+      });
+
+      // Anime les graphiques à l'entrée dans la zone visible.
+      var cases = document.querySelectorAll(".case");
+
+      if ("IntersectionObserver" in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        cases.forEach(function (card) {
+          observer.observe(card);
+        });
+      } else {
+        cases.forEach(function (card) {
+          card.classList.add("in");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
