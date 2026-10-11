@@ -862,6 +862,111 @@
         transition-duration: 0.01ms !important;
       }
     }
+
+    
+/* Cas réels */
+.real-cases-section {
+  background: #edf3f9;
+}
+
+
+.real-cases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.real-case-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+}
+
+
+.real-case-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 17px 38px rgba(16, 27, 50, 0.12);
+}
+
+.real-case-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #101b32;
+}
+
+.real-case-content {
+  padding: 25px;
+}
+
+.real-case-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: var(--cyan-light);
+  color: #225b76;
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.real-case-content h3 {
+  margin-bottom: 20px;
+}
+
+.real-case-detail {
+  display: grid;
+  gap: 15px;
+}
+
+.real-case-detail > div {
+  padding-left: 13px;
+  border-left: 3px solid var(--border);
+}
+
+.real-case-detail strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--navy);
+  font-size: 0.9rem;
+}
+
+.real-case-detail p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.real-case-detail .gain {
+  padding: 13px 15px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--cyan-light);
+}
+
+.real-case-detail .gain strong {
+  color: #225b76;
+}
+
+.real-case-detail .gain p {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .real-cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .real-case-content {
+    padding: 21px;
+  }
+}
   </style>
 </head>
 
@@ -1054,130 +1159,195 @@
       </div>
     </section>
 
-    <!-- Exemples et gains de temps -->
-    <section class="section examples-section" id="exemples">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow"
-                data-fr="Applications concrètes"
-                data-en="Practical applications">Applications concrètes</span>
+    
+<!-- Cas réels -->
+<section class="section real-cases-section" id="exemples">
+  <div class="container">
 
-          <h2 data-fr="Moins de tâches répétitives, plus de valeur"
-              data-en="Less repetitive work, more value">
-            Moins de tâches répétitives, plus de valeur
-          </h2>
+    <div class="section-heading">
+      <span class="eyebrow"
+            data-fr="Cas concrets"
+            data-en="Real-world cases">
+        Cas concrets
+      </span>
 
-          <p data-fr="Les gains dépendent du processus initial, du volume de données et du niveau d'automatisation. Les exemples chiffrés ci-dessous sont des illustrations, pas des garanties."
-             data-en="Results depend on the original process, data volume and level of automation. The figures below are illustrative examples, not guarantees.">
-            Les gains dépendent du processus initial, du volume de données et du niveau d'automatisation. Les exemples chiffrés ci-dessous sont des illustrations, pas des garanties.
-          </p>
-        </div>
+      <h2 data-fr="Des problèmes concrets, des résultats mesurables"
+          data-en="Real problems, measurable results">
+        Des problèmes concrets, des résultats mesurables
+      </h2>
 
-        <div class="cards-grid">
-          <!-- Power Query -->
-          <article class="card example-card">
-            <span class="example-label">Power Query</span>
-            <h3 data-fr="Automatiser le nettoyage des données"
-                data-en="Automate data cleaning">
-              Automatiser le nettoyage des données
-            </h3>
+      <p data-fr="Découvrez comment l'automatisation, l'analyse de données et l'IA transforment des processus professionnels concrets."
+         data-en="See how automation, data analysis and AI transform real-world business processes.">
+        Découvrez comment l'automatisation, l'analyse de données et l'IA transforment des processus professionnels concrets.
+      </p>
+    </div>
 
-            <p data-fr="Remplacez les étapes manuelles répétées par une transformation réutilisable et actualisable."
-               data-en="Replace repeated manual steps with a reusable, refreshable transformation.">
-              Remplacez les étapes manuelles répétées par une transformation réutilisable et actualisable.
-            </p>
+    <div class="real-cases-grid">
 
-            <div class="metric">
-              <div class="metric-head">
-                <span data-fr="Temps initial" data-en="Original time">Temps initial</span>
-                <strong>100 %</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-bar" style="width:100%"></div>
-              </div>
+ <!-- Cas réel 1 : Power BI -->
+      <article class="real-case-card">
 
-              <div class="metric-head" style="margin-top:15px">
-                <span data-fr="Temps après automatisation" data-en="Time after automation">Temps après automatisation</span>
-                <strong>20 %</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-bar" style="width:20%"></div>
-              </div>
+        <video
+          class="real-case-video"
+          controls
+          preload="metadata"
+          playsinline
+          aria-label="Démonstration Power BI">
+          <source src="power-bi.mp4" type="video/mp4">
+          Votre navigateur ne prend pas en charge la lecture vidéo.
+        </video>
 
-              <p class="metric-note"
-                 data-fr="Exemple : 80 % de temps économisé, soit un temps de traitement divisé par 5."
-                 data-en="Example: 80% time saved, meaning processing time is reduced by a factor of 5.">
-                Exemple : 80 % de temps économisé, soit un temps de traitement divisé par 5.
+        <div class="real-case-content">
+          <span class="real-case-label">Power BI</span>
+
+          <h3 data-fr="Analyse et Reporting boosté par IA et Power Bi"
+              data-en="Enhanced analytics and reporting with AI and Power BI">
+            Analyse et Reporting boosté par IA et Power Bi
+          </h3>
+
+          <div class="real-case-detail">
+
+            <div>
+              <strong data-fr="Avant" data-en="Before">Avant</strong>
+              <p data-fr="Catégorisation manuelle des données et consolidation des indicateurs dans un fichier Excel.
+                Pas de visuels interactifs, de filtres et pas de possibilité d'actualiser les données facilement."
+                 data-en="Manual data categorization and KPI consolidation in an Excel file. No interactive visuals, filters, or easy data refresh options.">
+                Catégorisation manuelle des données et consolidation des indicateurs dans un fichier Excel.
+                Pas de visuels interactifs, de filtres et pas de possibilité d'actualiser les données facilement.
               </p>
             </div>
-          </article>
 
-          <!-- Excel + AI -->
-          <article class="card example-card">
-            <span class="example-label">IA</span>
-            <h3 data-fr="Accélérer les tâches courantes"
-                data-en="Speed up everyday tasks">
-              Accélérer les tâches courantes
-            </h3>
-
-            <p data-fr="Utilisez l'IA pour assister la création de formules, expliquer du code et accélérer certaines analyses, avec vérification des résultats."
-               data-en="Use AI to assist with formulas, explain code and speed up some analyses, while verifying the results.">
-              Utilisez l'IA pour assister la création de formules, expliquer du code et accélérer certaines analyses, avec vérification des résultats.
-            </p>
-
-            <div class="metric">
-              <div class="metric-head">
-                <span data-fr="Temps initial" data-en="Original time">Temps initial</span>
-                <strong>100 %</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-bar" style="width:100%"></div>
-              </div>
-
-              <div class="metric-head" style="margin-top:15px">
-                <span data-fr="Temps après assistance IA" data-en="Time with AI assistance">Temps après assistance IA</span>
-                <strong>45 %</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-bar" style="width:45%"></div>
-              </div>
-
-              <p class="metric-note"
-                 data-fr="Exemple : 55 % de temps économisé. Le résultat varie selon la tâche et la qualité des vérifications."
-                 data-en="Example: 55% time saved. Results vary depending on the task and the quality of verification.">
-                Exemple : 55 % de temps économisé. Le résultat varie selon la tâche et la qualité des vérifications.
+            <div>
+              <strong data-fr="Après" data-en="After">Après</strong>
+              <p data-fr="Tableau de bord avec indicateurs clés automatisés et actualisables, avec possibilité d'explorer les données via des filtres et des visuels interactifs. Grâce à un modèle de reconnaissance construit assisté par IA."
+                 data-en="Dashboard with automated and refreshable KPIs, allowing data exploration through filters and interactive visuals. Powered by an AI-assisted recognition model.">
+                Tableau de bord avec indicateurs clés automatisés et actualisables, avec possibilité d'explorer les données via des filtres et des visuels interactifs. Modèle de reconnaissance assisté par IA.
               </p>
             </div>
-          </article>
 
-          <!-- Power BI -->
-          <article class="card example-card">
-            <span class="example-label">Power BI</span>
-            <h3 data-fr="Passer du reporting au pilotage"
-                data-en="Move from reporting to decision support">
-              Passer du reporting au pilotage
-            </h3>
-
-            <p data-fr="Centralisez vos indicateurs et rendez les analyses plus accessibles aux équipes."
-               data-en="Centralize your KPIs and make analysis more accessible to teams.">
-              Centralisez vos indicateurs et rendez les analyses plus accessibles aux équipes.
-            </p>
-
-            <div class="qualitative-list">
-              <span data-fr="Rapports actualisables" data-en="Refreshable reports">Rapports actualisables</span>
-              <span data-fr="Indicateurs cohérents et centralisés" data-en="Consistent, centralized KPIs">Indicateurs cohérents et centralisés</span>
-              <span data-fr="Exploration interactive des résultats" data-en="Interactive exploration of results">Exploration interactive des résultats</span>
+            <div class="gain">
+              <strong data-fr="Gain" data-en="Benefit">Gain</strong>
+              <p data-fr="Tâches sans valeur ajoutée supprimées, reporting plus accessible et analyse facilitée des indicateurs. 4H/semaine de gain de temps."
+                 data-en="Non-value-added tasks eliminated, more accessible reporting, and easier analysis of KPIs. 4 hours/week time savings.">
+                Tâches sans valeur ajoutée supprimées, reporting plus accessible et analyse facilitée des indicateurs. 4H/semaine de gain de temps.
+              </p>
             </div>
 
-            <p class="metric-note"
-               data-fr="Le gain de temps dépend du reporting existant, de la modélisation et de la fréquence des mises à jour. Aucun pourcentage universel n'est avancé."
-               data-en="Time savings depend on existing reports, data modelling and update frequency. No universal percentage is claimed.">
-              Le gain de temps dépend du reporting existant, de la modélisation et de la fréquence des mises à jour. Aucun pourcentage universel n'est avancé.
-            </p>
-          </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </article>
+
+
+
+
+      <!-- Cas réel 2 : Power Query -->
+      <article class="real-case-card">
+
+        <video
+          class="real-case-video"
+          controls
+          preload="metadata"
+          playsinline
+          aria-label="Démonstration Power Query">
+          <source src="power-query.mp4" type="video/mp4">
+          Votre navigateur ne prend pas en charge la lecture vidéo.
+        </video>
+
+        <div class="real-case-content">
+          <span class="real-case-label">Power Query</span>
+
+          <h3 data-fr="Automatisation de la préparation des données"
+              data-en="Automating data preparation">
+            Automatisation de la préparation des données
+          </h3>
+
+          <div class="real-case-detail">
+
+            <div>
+              <strong data-fr="Avant" data-en="Before">Avant</strong>
+              <p data-fr="Ouverture des fichiers un à un -> Copier-coller chaque table avec possibilité d'erreurs et perte de temps."
+                 data-en="Opening files one by one -> Copy-pasting each table with potential errors and time loss.">
+                Ouverture des fichiers un à un -> Copier-coller chaque table avec possibilité d'erreurs et perte de temps. 
+              </p>
+            </div>
+
+            <div>
+              <strong data-fr="Après" data-en="After">Après</strong>
+              <p data-fr="Utilisation de power query pour combiner les fichiers et nettoyer les données automatiquement."
+                 data-en="Using Power Query to combine files and clean data automatically.">
+                Utilisation de power query pour combiner les fichiers et nettoyer les données automatiquement.
+              </p>
+            </div>
+
+            <div class="gain">
+              <strong data-fr="Gain" data-en="Benefit">Gain</strong>
+              <p data-fr="Tâches complètement automatisées en 1 clic et 100% de fiabilité des résultats. Gain de 2h/mois sur la préparation des données."
+                 data-en="Tasks fully automated with one click and 100% reliable results. 2 hours/month saved on data preparation.">
+                Tâches complètement automatisées en 1 clic et 100% de fiabilité des résultats. Gain de 2h/mois sur la préparation des données.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+     
+
+      <!-- Cas réel 3 : Excel et IA -->
+      <article class="real-case-card">
+
+        <video
+          class="real-case-video"
+          controls
+          preload="metadata"
+          playsinline
+          aria-label="Démonstration Excel et intelligence artificielle">
+          <source src="excel-ia.mp4" type="video/mp4">
+          Votre navigateur ne prend pas en charge la lecture vidéo.
+        </video>
+
+        <div class="real-case-content">
+          <span class="real-case-label">Excel · IA</span>
+
+          <h3 data-fr="Analyse de données accélérée par l'IA"
+              data-en="Accelerating data analysis with AI">
+            Analyse de données accélérée par l'IA
+          </h3>
+
+          <div class="real-case-detail">
+
+            <div>
+              <strong data-fr="Avant" data-en="Before">Avant</strong>
+              <p data-fr="echerche manuelle de formules et construction progressive de l'analyse et limitation sur les outils."
+                 data-en="Manual formula search and progressive analysis construction, limited by available tools.">
+                Recherche manuelle de formules et construction progressive de l'analyse et limitation sur les outils.
+              </p>
+            </div>
+
+            <div>
+              <strong data-fr="Après" data-en="After">Après</strong>
+              <p data-fr="Utilisation de l'IA pour accélérer la création d'outils personnalisés et structurer la solution. Analyse assistée des résultats. Conseils sur les méthodes."
+                 data-en="Using AI to speed up the creation of custom tools and structure the solution. Assisted analysis of results. Advice on methods.">
+                Utilisation de l'IA pour accélérer la création d'outils personnalisés et structurer la solution. Analyse assistée des résultats. Conseils sur les méthodes.
+              </p>
+            </div>
+
+            <div class="gain">
+              <strong data-fr="Gain" data-en="Benefit">Gain</strong>
+              <p data-fr="Temps de développement réduit, assistant technique sur les outils et le contenu, professeur particuliers disponible 24h/24. Gain consiérable de temps et d'efficacité sur les analyses ainsi qu'une autonomie sur les outils."
+                 data-en="Reduced development time, technical assistance on tools and content, private tutor available 24/7. Significant time and efficiency gains on analyses as well as autonomy on the tools.">
+                Temps de développement réduit, assistant technique sur les outils et le contenu, professeur particuliers disponible 24h/24. Gain consiérable de temps et d'efficacité sur les analyses ainsi qu'une autonomie sur les outils.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+      
+    </div>
+  </div>
+</section>
 
     <!-- Méthode -->
     <section class="section" id="methode">
